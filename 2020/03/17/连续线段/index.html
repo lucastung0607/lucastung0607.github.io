@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="Lucas Tung">
   <meta name="keywords" content="">
-  <title>小型图书管理系统 - Lucas Tung</title>
+  <title>连续线段 - Lucas Tung</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
@@ -132,8 +132,8 @@
               
                 <div class="mt-3 post-meta">
                   <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-                  <time datetime="2020-03-14 18:25">
-                    2020年3月14日 晚上
+                  <time datetime="2020-03-17 20:34">
+                    2020年3月17日 晚上
                   </time>
                 </div>
               
@@ -143,7 +143,7 @@
                   
                   <span class="post-meta mr-2">
                     <i class="iconfont icon-chart"></i>
-                    1.4k 字
+                    1.1k 字
                   </span>
                 
 
@@ -153,7 +153,7 @@
                       <i class="iconfont icon-clock-fill"></i>
                     
                     
-                    18
+                    15
                      分钟
                   </span>
                 
@@ -182,132 +182,128 @@
           <div class="post-content mx-auto" id="post">
             
             <article class="markdown-body">
-              <p>##小型图书管理系统</p>
+              <h1 id="连续线段"><a class="markdownIt-Anchor" href="#连续线段"></a> 连续线段</h1>
 <h2 id="问题描述"><a class="markdownIt-Anchor" href="#问题描述"></a> 问题描述</h2>
-<p>小明同学特别喜欢买书看书。由于书较多，摆放杂乱，找起来非常麻烦。这学期小明同学上了数据结构与程序设计课后，决定改变这种状况：用C开发一个小型图书管理系统。系统中包含的图书信息有：书名、作者、出版社、出版日期等。首先，图书管理系统对已有的书（原始书库，存放在一个文本文件中）按书名字典序进行（排序）摆放（即将原始无序的图书信息文件生成一个有序的文件，即新书库），以便查找。该管理系统可以对新书库中图书条目进行如下操作：</p>
-<ol>
-<li>录入。新增书录入到书库中（即从输入中读入一条图书信息插入到已排序好的图书文件相关位置处）</li>
-<li>查找。按书名或书名中关键字信息在书库中查找相关图书信息，若有多本书，按字典序输出。</li>
-<li>删除。输入书名或书名中关键字信息，从书库中查找到相关书并将其删除，并更新书库。</li>
-</ol>
-<p>##输入形式</p>
-<p>原始的图书信息（原始书库）保存在当前目录下的books.txt中。<br />
-用户操作从控制台读入，首先输入操作功能序号（1代表录入操作，2代表查找操作，3代表删除操作，0代表将已更新的图书信息保存到书库中并退出程序），然后在下一行输入相应的操作信息（录入操作后要输入一条图书信息，查找和删除操作后只要输入书名或书名中部分信息）。程序支行过程中可以进行多次操作，直到退出（输入操作0）程序。<br />
-要求：</p>
-<ol>
-<li>原始文件中的图书信息与录入的图书信息格式相同，每条图书信息都在一行上，包括书名（不超过50个字符）、作者（不超过20个字符）、出版社（不超过30个字符）和出版日期（不超过10个字符），只由英文字母和下划线组成，用一个空格分隔。图书信息总条数不会超过500.</li>
-<li>下划线字符参加排序。</li>
-<li>图书不会重名。</li>
-</ol>
+<p>平面上两个点（一个点由(x,y)坐标组成）可构成一个线段，两个线段如果有一个端点相同，则可构成一个连续线段。假设构成线段的两个端点为v1(x1,y1)和v2(x2,y2)，在此满足x1&lt;x2，其中v1称为线段的起点，v2为线段的终点。同样，对于连续线段来说，在此满足xi&lt;xi+1（i=1…n-1，n为连续线段中的端点数，xi为相应端点的X轴坐标）。输入一组线段（用两个端点的x、y坐标表示线段，线段个数大于等于2，小于等于100），编程计算出连续线段中包含最多线段数的线段，输出相应的线段数和起点位置（注意，不是最长的连续线段，是包含最多线段的连续线段）。例如：</p>
+<p><img src="https://pics.images.ac.cn/image/5ec7c7151ce95.html" srcset="/img/loading.gif" alt="" /></p>
+<p>上图中有10个线段，其中5、10、4号线段连成了一条连续线段，线段数3条，起点位置为5号线段的左端点；6、8、2、3、9号线段连成了另一条连续线段，该连续线段包含的线段数最多，为5条，起点位置是6号线段的左端点。<br />
+注意：<br />
+1）不考虑线段中间相交的情况；<br />
+2）不会有三条或三条以上的线段共一个端点；<br />
+3）只会出现一条包含最多线段的连续线段；</p>
+<h2 id="输入形式"><a class="markdownIt-Anchor" href="#输入形式"></a> 输入形式</h2>
+<p>先从控制台输入线段数，然后从下一行开始分行输入各线段两个端点的x、y坐标，其中第一个端点的X轴坐标小于第二个端点的X轴坐标，即x1&lt;x2，x、y坐标都用整数表示，不会超过int的表示范围。各整数坐标值间以一个空格分隔。</p>
 <h2 id="输出形式"><a class="markdownIt-Anchor" href="#输出形式"></a> 输出形式</h2>
-<p>进行录入和删除操作，系统会更新图书信息，但不会在控制台窗口显示任何信息。<br />
-进行查找操作后，将在控制台按书名字典序分行输出查找到的图书信息，书名占50个字符宽度，作者占20个字符宽度，出版社占30个字符宽度，出版日期占10个字符宽度，都靠左对齐输出。<br />
-最终按字典排序的图书信息保存在当前目录下的ordered.txt中，每条图书信息占一行，格式与查找输出的图书信息相同。</p>
+<p>先在控制台输出包含最多线段数的连续线段的线段数，然后输出连续线段的起点的x、y坐标，输出数据<strong>都以一个空格分隔</strong>。</p>
 <h2 id="样例输入"><a class="markdownIt-Anchor" href="#样例输入"></a> 样例输入</h2>
-<p><strong>假设books.txt中保存的原始图书信息为：</strong><br />
-The_C_programming_language Kernighan Prentice_Hall 1988<br />
-Programming_in_C Yin_Bao_Lin China_Machine_Press 2013<br />
-Data_structures_and_Algorithm_Analysis_in_C Mark_Allen_Weiss Addison_Wesley 1997<br />
-ANSI_and_ISO_Standard_c Plauger Microsoft_Press 1992<br />
-Data_structures_and_program_design_in_C Robert_Kruse Pearson_Education 1997<br />
-Computer_network_architectures Anton_Meijer Computer_Science_Press 1983<br />
-C_programming_guidelines Thomas_Plum Prentice_Hall 1984<br />
-Data_structures_using_C Tenenbaum Prentice_Hall 1990<br />
-Operating_system_concepts Peterson Addison_Wesley 1983<br />
-Computer_networks_and_internets Douglas_E_Come Electronic_Industry 2017<br />
-<strong>用户控制台输入信息为：</strong><br />
-1<br />
-Data_structures_and_C_programs Christopher Addison_Wesley 1988<br />
-2<br />
-structure<br />
-1<br />
-The_C_programming_tutor Leon_A_Wortman R_J_Brady 1984<br />
-2<br />
-rogram<br />
-3<br />
-rogramming<br />
-0</p>
-<p>##样例输出</p>
-<p><strong>用户输入“2 structure”后，控制台输出：</strong></p>
-<p><img src="https://pics.images.ac.cn/image/5ec7c86e3cc25.html" srcset="/img/loading.gif" alt="" /></p>
-<p><strong>用户输入“2 rogram”后，控制台输出：</strong></p>
-<p><img src="https://pics.images.ac.cn/image/5ec7c8912f36e.html" srcset="/img/loading.gif" alt="" /></p>
-<p><strong>ordered.txt文件内容为：</strong></p>
-<p><img src="https://ae01.alicdn.com/kf/H1ca8ad7496bb4f89825a15365d4233bbv.jpg" srcset="/img/loading.gif" alt="" /></p>
+<p>10</p>
+<p>80 75 125 75</p>
+<p>60 40 80 55</p>
+<p>80 55 90 20</p>
+<p>140 120 195 205</p>
+<p>10 111 70 165</p>
+<p>22 35 43 43</p>
+<p>22 175 80 205</p>
+<p>43 43 60 40</p>
+<p>90 20 125 60</p>
+<p>70 165 140 120</p>
+<h2 id="样例输出"><a class="markdownIt-Anchor" href="#样例输出"></a> 样例输出</h2>
+<p>5 22 35</p>
 <h2 id="样例说明"><a class="markdownIt-Anchor" href="#样例说明"></a> 样例说明</h2>
-<p>先读入books.txt中的10条图书信息，按照书名进行字典序排序；用户进行了五次操作，然后退出：第一次操作是插入了一条图书信息，这时有11条图书信息，按书名字典序排序为：<br />
-ANSI_and_ISO_Standard_c Plauger Microsoft_Press 1992<br />
-C_programming_guidelines Thomas_Plum Prentice_Hall 1984<br />
-Computer_network_architectures Anton_Meijer Computer_Science_Press 1983<br />
-Computer_networks_and_internets Douglas_E_Come Electronic_Industry 2017<br />
-Data_structures_and_Algorithm_Analysis_in_C Mark_Allen_Weiss Addison_Wesley 1997<br />
-Data_structures_and_C_programs Christopher Addison_Wesley 1988<br />
-Data_structures_and_program_design_in_C Robert_Kruse Pearson_Education 1997<br />
-Data_structures_using_C Tenenbaum Prentice_Hall 1990<br />
-Operating_system_concepts Peterson Addison_Wesley 1983<br />
-Programming_in_C Yin_Bao_Lin China_Machine_Press 2013<br />
-The_C_programming_language Kernighan Prentice_Hall 1988<br />
-第二次操作是查找书名包含structure的图书，有4本图书信息按照格式要求输出到屏幕；第三次操作又插入了一条图书信息，这时有12条图书信息；第四次操作查找书名包含rogram的图书，有6本图书信息按照格式要求输出到屏幕；第五次操作是删除书名包含rogramming的图书信息，有四条图书信息要删除，剩下八条图书信息；最后退出程序前将剩余的八条图书信息按照格式要求存储在ordered.txt文件中。</p>
+<p>输入了十个线段，第一个线段两个端点分别为(80,75）和(125,75），其它线段类似，如上图所示，这些线段所构成的连续线段中包含最多线段数的连续线段的线段数为5，起点为(22,35），所以输出：5 22 35。</p>
+<h2 id="思路"><a class="markdownIt-Anchor" href="#思路"></a> 思路</h2>
+<ol>
+<li>建立结构体，存储
+<ul>
+<li>左端点两坐标</li>
+<li>右端点两坐标</li>
+<li>所含线段数量</li>
+</ul>
+</li>
+<li>循环遍历各结构体，寻找重合端点，合并线段并将线段数量++</li>
+<li>快排进行排序</li>
+<li>输出</li>
+</ol>
 <h2 id="代码"><a class="markdownIt-Anchor" href="#代码"></a> 代码</h2>
-<pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<pre><code class="hljs C"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
 <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdlib.h&gt;</span></span>
-<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string.h&gt;</span></span>
-<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> ELEMENT 100</span>
-<span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">books</span> &#123;</span>
-    <span class="hljs-keyword">char</span> name[<span class="hljs-number">51</span>];
-    <span class="hljs-keyword">char</span> author[<span class="hljs-number">21</span>];
-    <span class="hljs-keyword">char</span> <span class="hljs-built_in">press</span>[<span class="hljs-number">31</span>];
-    <span class="hljs-keyword">char</span> date[<span class="hljs-number">11</span>];
-&#125; BOOKS;
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">cmp</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">void</span> *p,<span class="hljs-keyword">const</span> <span class="hljs-keyword">void</span> *q)</span> </span>&#123;
-    <span class="hljs-keyword">int</span> c;
-    c = <span class="hljs-built_in">strcmp</span>((*(BOOKS *) p).name, (*(BOOKS *) q).name);
-    <span class="hljs-keyword">if</span> (c &gt; <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
-    <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;
-&#125;
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;
-    <span class="hljs-keyword">int</span> oprt = <span class="hljs-number">0</span>, i = <span class="hljs-number">0</span>, j = <span class="hljs-number">0</span>, n = <span class="hljs-number">0</span>;
-    <span class="hljs-keyword">char</span> str[<span class="hljs-number">51</span>];
-    BOOKS book[ELEMENT];
-    FILE *IN, *OUT;
-    IN = fopen(<span class="hljs-string">"books.txt"</span>, <span class="hljs-string">"r"</span>);
-    OUT = fopen(<span class="hljs-string">"ordered.txt"</span>, <span class="hljs-string">"w"</span>);
-    <span class="hljs-keyword">while</span> (<span class="hljs-built_in">fscanf</span>(IN, <span class="hljs-string">"%s %s %s %s"</span>, book[n].name, book[n].author, book[n].<span class="hljs-built_in">press</span>, book[n].date) != EOF) &#123;
-        n++;
+<span class="hljs-comment">//建立结构体</span>
+<span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">line</span>&#123;</span>
+    <span class="hljs-keyword">int</span> x1;
+    <span class="hljs-keyword">int</span> x2;
+    <span class="hljs-keyword">int</span> y1;
+    <span class="hljs-keyword">int</span> y2;
+    <span class="hljs-keyword">int</span> amount;
+&#125; LINE;
+LINE l[<span class="hljs-number">500</span>];
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">delete</span><span class="hljs-params">(<span class="hljs-keyword">int</span> j, <span class="hljs-keyword">int</span> m)</span></span>&#123;
+    <span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">for</span>(i = j; i &lt; m<span class="hljs-number">-1</span>; i++)&#123;
+        l[i] = l[i+<span class="hljs-number">1</span>];
     &#125;
-    qsort(book, n, <span class="hljs-keyword">sizeof</span>(BOOKS), cmp);
-    <span class="hljs-keyword">while</span> (<span class="hljs-number">1</span>) &#123;
-        <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d"</span>, &amp;oprt);
-        <span class="hljs-keyword">if</span> (oprt == <span class="hljs-number">0</span>) &#123;
-            <span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;
-                <span class="hljs-built_in">fprintf</span>(OUT, <span class="hljs-string">"%-50s%-20s%-30s%-10s\n"</span>, book[i].name, book[i].author, book[i].<span class="hljs-built_in">press</span>, book[i].date);
+&#125;
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">cmp</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">void</span> *a, <span class="hljs-keyword">const</span> <span class="hljs-keyword">void</span> *b)</span></span>&#123;
+    <span class="hljs-keyword">return</span> (*(LINE *)b).amount - (*(LINE *)a).amount;
+&#125;
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;
+    <span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>, j = <span class="hljs-number">0</span>, n, m = <span class="hljs-number">0</span>;
+    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d"</span>, &amp;n);
+    <span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;
+        LINE <span class="hljs-built_in">line</span>;
+        <span class="hljs-comment">//读入数据</span>
+        <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d%d%d%d"</span>, &amp;<span class="hljs-built_in">line</span>.x1, &amp;<span class="hljs-built_in">line</span>.y1, &amp;<span class="hljs-built_in">line</span>.x2, &amp;<span class="hljs-built_in">line</span>.y2);
+        <span class="hljs-built_in">line</span>.amount = <span class="hljs-number">1</span>;
+        <span class="hljs-keyword">if</span> (m == <span class="hljs-number">0</span>) &#123;
+            l[<span class="hljs-number">0</span>] = <span class="hljs-built_in">line</span>;
+            m++;
+            <span class="hljs-keyword">continue</span>;
+        &#125;
+        <span class="hljs-keyword">for</span> (j = <span class="hljs-number">0</span>; j &lt; m + <span class="hljs-number">1</span>; j++) &#123;
+            <span class="hljs-comment">//若左端点与右端点相同，则合并两线段</span>
+            <span class="hljs-keyword">if</span> (<span class="hljs-built_in">line</span>.x1 == l[j].x2 &amp;&amp; <span class="hljs-built_in">line</span>.y1 == l[j].y2) &#123;
+                <span class="hljs-built_in">line</span>.amount += l[j].amount;
+                <span class="hljs-built_in">line</span>.x1 = l[j].x1;
+                <span class="hljs-built_in">line</span>.y1 = l[j].y1;
+                <span class="hljs-keyword">delete</span>(j, m);
+                m--;
             &#125;
-            <span class="hljs-keyword">break</span>;
-        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (oprt == <span class="hljs-number">1</span>) &#123;
-            <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%s %s %s %s"</span>, book[n].name, book[n].author, book[n].<span class="hljs-built_in">press</span>, book[n].date);
-            n++;
-            qsort(book, n, <span class="hljs-keyword">sizeof</span>(BOOKS), cmp);
-        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (oprt == <span class="hljs-number">2</span>) &#123;
-            <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%s"</span>, str);
-            <span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;
-                <span class="hljs-keyword">if</span> (<span class="hljs-built_in">strstr</span>(book[i].name, str)) &#123;
-                    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%-50s%-20s%-30s%-10s\n"</span>, book[i].name, book[i].author, book[i].<span class="hljs-built_in">press</span>, book[i].date);
-                &#125;
+            <span class="hljs-comment">//若右端点与左端点相同，则合并两线段</span>
+            <span class="hljs-keyword">if</span> (<span class="hljs-built_in">line</span>.x2 == l[j].x1 &amp;&amp; <span class="hljs-built_in">line</span>.y2 == l[j].y1) &#123;
+                <span class="hljs-built_in">line</span>.amount += l[j].amount;
+                <span class="hljs-built_in">line</span>.x2 = l[j].x2;
+                <span class="hljs-built_in">line</span>.y2 = l[j].y2;
+                <span class="hljs-keyword">delete</span>(j, m);
+                m--;
             &#125;
-        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (oprt == <span class="hljs-number">3</span>) &#123;
-            <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%s"</span>, str);
-            <span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;
-                <span class="hljs-keyword">if</span> (<span class="hljs-built_in">strstr</span>(book[i].name, str)) &#123;
-                    n = n - <span class="hljs-number">1</span>;
-                    <span class="hljs-keyword">for</span> (j = i; j &lt; n; j++) &#123;
-                        book[j] = book[j + <span class="hljs-number">1</span>];
-                    &#125;
-                    i--;
-                &#125;
+        &#125;
+        l[m] = <span class="hljs-built_in">line</span>;
+        m++;
+    &#125;
+    <span class="hljs-comment">//为保险再次筛选一遍</span>
+    <span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; m; i++) &#123;
+        <span class="hljs-keyword">for</span> (j = <span class="hljs-number">0</span>; j &lt; m; j++) &#123;
+            <span class="hljs-keyword">if</span> (l[i].x1 == l[j].x2 &amp;&amp; l[i].y1 == l[j].y2) &#123;
+                l[i].amount += l[j].amount;
+                l[i].x1 = l[j].x1;
+                l[i].y1 = l[j].y1;
+                <span class="hljs-keyword">delete</span>(j, m);
+                m--;
+            &#125;
+            <span class="hljs-keyword">if</span> (l[i].x2 == l[j].x1 &amp;&amp; l[i].y2 == l[j].y1) &#123;
+                l[i].amount += l[j].amount;
+                l[i].x2 = l[j].x2;
+                l[i].y2 = l[j].y2;
+                <span class="hljs-keyword">delete</span>(j, m);
+                m--;
             &#125;
         &#125;
     &#125;
-
+    <span class="hljs-comment">//快排</span>
+    qsort(l, m, <span class="hljs-keyword">sizeof</span>(l[<span class="hljs-number">0</span>]), cmp);
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d %d %d"</span>, l[<span class="hljs-number">0</span>].amount, l[<span class="hljs-number">0</span>].x1, l[<span class="hljs-number">0</span>].y1);
     <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
 &#125;</code></pre>
 
@@ -321,7 +317,7 @@ The_C_programming_language Kernighan Prentice_Hall 1988<br />
                     
                       <a class="hover-with-bg" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
                     
-                      <a class="hover-with-bg" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E4%BD%9C%E4%B8%9A/">第二次作业</a>
+                      <a class="hover-with-bg" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%AC%E4%B8%89%E6%AC%A1%E4%BD%9C%E4%B8%9A/">第三次作业</a>
                     
                   </div>
                 
@@ -346,9 +342,9 @@ The_C_programming_language Kernighan Prentice_Hall 1988<br />
                   <div class="post-prev col-6">
                     
                     
-                      <a href="/2020/03/17/%E8%BF%9E%E7%BB%AD%E7%BA%BF%E6%AE%B5/">
+                      <a href="/2020/03/18/%E7%8C%B4%E5%AD%90%E9%80%89%E5%A4%A7%E7%8E%8B/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">连续线段</span>
+                        <span class="hidden-mobile">猴子选大王</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -356,8 +352,8 @@ The_C_programming_language Kernighan Prentice_Hall 1988<br />
                   <div class="post-next col-6">
                     
                     
-                      <a href="/2020/03/14/%E9%80%9A%E8%AE%AF%E5%BD%95%E6%95%B4%E7%90%86/">
-                        <span class="hidden-mobile">通讯录整理</span>
+                      <a href="/2020/03/14/%E5%B0%8F%E5%9E%8B%E5%9B%BE%E4%B9%A6%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/">
+                        <span class="hidden-mobile">小型图书管理系统</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -497,7 +493,7 @@ The_C_programming_language Kernighan Prentice_Hall 1988<br />
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "小型图书管理系统&nbsp;",
+        "连续线段&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
