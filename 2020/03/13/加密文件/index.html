@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="Lucas Tung">
   <meta name="keywords" content="">
-  <title>字符串替换 - Lucas Tung</title>
+  <title>加密文件 - Lucas Tung</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
@@ -132,8 +132,8 @@
               
                 <div class="mt-3 post-meta">
                   <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-                  <time datetime="2020-03-13 17:48">
-                    2020年3月13日 下午
+                  <time datetime="2020-03-13 18:16">
+                    2020年3月13日 晚上
                   </time>
                 </div>
               
@@ -143,7 +143,7 @@
                   
                   <span class="post-meta mr-2">
                     <i class="iconfont icon-chart"></i>
-                    456 字
+                    628 字
                   </span>
                 
 
@@ -153,7 +153,7 @@
                       <i class="iconfont icon-clock-fill"></i>
                     
                     
-                    6
+                    8
                      分钟
                   </span>
                 
@@ -182,103 +182,187 @@
           <div class="post-content mx-auto" id="post">
             
             <article class="markdown-body">
-              <h1 id="字符串替换新"><a class="markdownIt-Anchor" href="#字符串替换新"></a> 字符串替换（新）</h1>
+              <h1 id="加密文件"><a class="markdownIt-Anchor" href="#加密文件"></a> 加密文件</h1>
 <h2 id="问题描述"><a class="markdownIt-Anchor" href="#问题描述"></a> 问题描述</h2>
-<p>编写程序将一个指定文件中某一字符串替换为另一个字符串。要求：</p>
-<ol>
-<li>被替换字符串若有多个，均要被替换；</li>
-<li>指定的被替换字 符串，大小写无关。</li>
-</ol>
+<p>有一种加密方法为：其使用一个字母串（可以含重复字母，字母个数不超过50）作为密钥。假定密钥单词串为feather，则先去掉密钥单词中的重复字母得到单词串feathr，然后再将字母表中的其它字母以反序追加到feathr的后面：</p>
+<table>
+<thead>
+<tr>
+<th>f</th>
+<th>e</th>
+<th>a</th>
+<th>t</th>
+<th>h</th>
+<th>r</th>
+<th>z</th>
+<th style="text-align:left">y</th>
+<th>x</th>
+<th>w</th>
+<th>v</th>
+<th>u</th>
+<th>s</th>
+<th>q</th>
+<th>p</th>
+<th>o</th>
+<th>n</th>
+<th>m</th>
+<th>l</th>
+<th>k</th>
+<th>j</th>
+<th>i</th>
+<th>g</th>
+<th>d</th>
+<th>c</th>
+<th>b</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td style="text-align:left"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>加密字母的对应关系如下：</p>
+<table>
+<thead>
+<tr>
+<th>a</th>
+<th>b</th>
+<th>c</th>
+<th>d</th>
+<th>e</th>
+<th>f</th>
+<th>g</th>
+<th>h</th>
+<th>i</th>
+<th>j</th>
+<th>k</th>
+<th>l</th>
+<th style="text-align:center">m</th>
+<th>n</th>
+<th>o</th>
+<th>p</th>
+<th>q</th>
+<th>r</th>
+<th>s</th>
+<th>t</th>
+<th>u</th>
+<th>v</th>
+<th>w</th>
+<th>x</th>
+<th>y</th>
+<th>z</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>f</td>
+<td>e</td>
+<td>a</td>
+<td>t</td>
+<td>h</td>
+<td>r</td>
+<td>z</td>
+<td>y</td>
+<td>x</td>
+<td>w</td>
+<td>v</td>
+<td>u</td>
+<td style="text-align:center">s</td>
+<td>q</td>
+<td>p</td>
+<td>o</td>
+<td>n</td>
+<td>m</td>
+<td>l</td>
+<td>k</td>
+<td>j</td>
+<td>i</td>
+<td>g</td>
+<td>d</td>
+<td>c</td>
+<td>b</td>
+</tr>
+</tbody>
+</table>
+<p>其中第一行为原始英文字母，第二行为对应加密字母。其它字符不进行加密。编写一个程序，用这种密码加密文件。假定要加密的文件名为encrypt.txt及加密后的文件名为output.txt，并假定输入文件中字母全为小写字母，并且输入密钥也全为小写字母。</p>
 <h2 id="输入形式"><a class="markdownIt-Anchor" href="#输入形式"></a> 输入形式</h2>
-<p>给定文件名为filein.txt。从控制台输入两行字符串（不含空格，行末尾都有回车换行符），分别表示被替换的字符串和替换字符串。</p>
+<p>从标准输入中输入密钥串，并从文件encrypt.txt中读入要加密的内容。</p>
 <h2 id="输出形式"><a class="markdownIt-Anchor" href="#输出形式"></a> 输出形式</h2>
-<p>将替换后的结果输出到文件fileout.txt中。</p>
+<p>加密后结果输出到文件output.txt中。</p>
 <h2 id="样例输入"><a class="markdownIt-Anchor" href="#样例输入"></a> 样例输入</h2>
-<p>从控制台输入两行字符串：</p>
-<p>in</p>
-<p>out</p>
-<p>文件filein.txt的内容为：</p>
-<pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
-
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>
-<span class="hljs-function"></span>
-<span class="hljs-function"></span>&#123;
-
-  FILE * IN;
-
-  <span class="hljs-keyword">if</span>((IN=fopen(<span class="hljs-string">"in.txt"</span>,<span class="hljs-string">"r"</span>))==<span class="hljs-literal">NULL</span>)
-
-  &#123;
-
-​    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Can&amp;rsquo;t open in.txt!"</span>);
-
-​    <span class="hljs-keyword">return</span>;
-
-  &#125;
-
-  fclose(IN);
-
-&#125;</code></pre>
+<p>feather<br />
+和文件encrypt.txt中内容，例如被加密的文件encrypt.txt中内容为：<br />
+c language is wonderful.</p>
 <h2 id="样例输出"><a class="markdownIt-Anchor" href="#样例输出"></a> 样例输出</h2>
-<p>文件fileout.txt的内容应为：</p>
-<pre><code class="hljs c"><span class="hljs-meta">#outclude <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
-
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">maout</span><span class="hljs-params">()</span></span>
-<span class="hljs-function"></span>
-<span class="hljs-function"></span>&#123;
-
-  FILE * out;
-
-  <span class="hljs-keyword">if</span>((out=fopen(<span class="hljs-string">"out.txt"</span>,<span class="hljs-string">"r"</span>))==<span class="hljs-literal">NULL</span>)
-
-  &#123;
-
-​    prouttf(<span class="hljs-string">"Can&amp;rsquo;t open out.txt!"</span>);
-
-​    <span class="hljs-keyword">return</span>;
-
-  &#125;
-
-  fclose(out);
-
-&#125;</code></pre>
+<p>加密后output.txt文件中内容为：<br />
+a ufqzjfzh xl gpqthmrju.</p>
 <h2 id="样例说明"><a class="markdownIt-Anchor" href="#样例说明"></a> 样例说明</h2>
-<p>输入的被替换字符串为in，替换字符串为out，即将文件filein.txt中的所有in字符串（包括iN、In、IN字符串）全部替换为out字符串，并输出保存到文件fileout.txt中。</p>
+<p>首先将给定的密钥单词去除重复字母，然后按照上面的加密对应表对encrypt.txt文件内容进行加密即可得到加密后的文件，其中只对英文字母进行加密对换，并且假设encrypt.txt中的英文字母全是小写字母。</p>
 <h2 id="代码"><a class="markdownIt-Anchor" href="#代码"></a> 代码</h2>
 <pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
 <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string.h&gt;</span></span>
 <span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> LEN 100</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">str_process</span><span class="hljs-params">(<span class="hljs-keyword">char</span> p[LEN], <span class="hljs-keyword">char</span> a[LEN], <span class="hljs-keyword">char</span> b[LEN])</span> </span>&#123;
-    <span class="hljs-keyword">int</span> len = <span class="hljs-built_in">strlen</span>(a), i;
-    <span class="hljs-keyword">char</span> *q, r[LEN], s[LEN];
-    <span class="hljs-built_in">strcpy</span>(s, p);
-    <span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-built_in">strlen</span>(s); i++) &#123;
-        <span class="hljs-keyword">if</span> (s[i] &gt;= <span class="hljs-string">'A'</span> &amp;&amp; s[i] &lt;= <span class="hljs-string">'Z'</span>) &#123;
-            s[i] = s[i] + <span class="hljs-number">32</span>;
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">convert</span><span class="hljs-params">(<span class="hljs-keyword">char</span> key[<span class="hljs-number">52</span>])</span></span>&#123;
+    <span class="hljs-keyword">char</span> tmp[<span class="hljs-number">52</span>];
+    <span class="hljs-keyword">int</span> alphabet[<span class="hljs-number">26</span>] = &#123;<span class="hljs-number">0</span>&#125;, i=<span class="hljs-number">0</span>, j=<span class="hljs-number">0</span>, k=<span class="hljs-number">0</span>;
+    <span class="hljs-keyword">for</span>(k = <span class="hljs-number">0</span>; key[k] != <span class="hljs-string">'\0'</span>; k++)&#123;
+        <span class="hljs-keyword">if</span>(alphabet[key[k]-<span class="hljs-string">'a'</span>] == <span class="hljs-number">0</span>)&#123;
+            alphabet[key[k]-<span class="hljs-string">'a'</span>] = <span class="hljs-number">1</span>;
+            tmp[i++] = key[k];
         &#125;
     &#125;
-    <span class="hljs-keyword">while</span> ((q = <span class="hljs-built_in">strstr</span>(s, a)) != <span class="hljs-literal">NULL</span>) &#123;
-        p[q - s] = <span class="hljs-string">'\0'</span>;
-        <span class="hljs-built_in">strcpy</span>(r, p + (q - s) + len);
-        <span class="hljs-built_in">strcat</span>(p, b);
-        <span class="hljs-built_in">strcat</span>(p, r);
-        *q = <span class="hljs-string">'\0'</span>;
-        <span class="hljs-built_in">strcpy</span>(r, q + len);
-        <span class="hljs-built_in">strcat</span>(s, b);
-        <span class="hljs-built_in">strcat</span>(s, r);
+    <span class="hljs-keyword">for</span>(j=<span class="hljs-number">25</span>; j&gt;=<span class="hljs-number">0</span>; j--)&#123;
+        <span class="hljs-keyword">if</span>(alphabet[j] == <span class="hljs-number">0</span>)&#123;
+            alphabet[j] = <span class="hljs-number">1</span>;
+            tmp[i++] = j + <span class="hljs-string">'a'</span>;
+        &#125;
     &#125;
+    tmp[i] = <span class="hljs-string">'\0'</span>;
+    <span class="hljs-built_in">strcpy</span>(key, tmp);
 &#125;
 <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;
-    <span class="hljs-keyword">char</span> c[LEN], a[LEN], b[LEN];
-    gets(a);
-    gets(b);
+    <span class="hljs-keyword">char</span> key[<span class="hljs-number">52</span>], c[LEN];
     <span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;
-    FILE *IN, *OUT;
-    IN = fopen(<span class="hljs-string">"filein.txt"</span>, <span class="hljs-string">"r"</span>);
-    OUT = fopen(<span class="hljs-string">"fileout.txt"</span>, <span class="hljs-string">"w"</span>);
-    <span class="hljs-keyword">while</span> (fgets(c, LEN, IN)) &#123;
-        str_process(c, a, b);
-        <span class="hljs-built_in">fputs</span>(c, OUT);
+    gets(key);
+    convert(key);
+    FILE *<span class="hljs-literal">INPUT</span>, *<span class="hljs-literal">OUTPUT</span>;
+    <span class="hljs-literal">INPUT</span> = fopen(<span class="hljs-string">"encrypt.txt"</span>,<span class="hljs-string">"r"</span>);
+    <span class="hljs-literal">OUTPUT</span> = fopen(<span class="hljs-string">"output.txt"</span>,<span class="hljs-string">"w"</span>);
+    <span class="hljs-keyword">while</span>(fgets(c, LEN, <span class="hljs-literal">INPUT</span>))&#123;
+        <span class="hljs-keyword">for</span>(i=<span class="hljs-number">0</span>; i&lt;<span class="hljs-built_in">strlen</span>(c); i++)&#123;
+            <span class="hljs-keyword">if</span>(c[i] &gt;= <span class="hljs-string">'a'</span> &amp;&amp; c[i] &lt;= <span class="hljs-string">'z'</span>)&#123;
+                fputc(key[c[i]-<span class="hljs-string">'a'</span>], <span class="hljs-literal">OUTPUT</span>);
+            &#125;
+            <span class="hljs-keyword">else</span>&#123;
+                fputc(c[i], <span class="hljs-literal">OUTPUT</span>);
+            &#125;
+        &#125;
     &#125;
     <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
 &#125;</code></pre>
@@ -307,9 +391,9 @@
                   <div class="post-prev col-6">
                     
                     
-                      <a href="/2020/03/13/%E5%8A%A0%E5%AF%86%E6%96%87%E4%BB%B6/">
+                      <a href="/2020/03/14/%E9%80%9A%E8%AE%AF%E5%BD%95%E6%95%B4%E7%90%86/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">加密文件</span>
+                        <span class="hidden-mobile">通讯录整理</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -317,8 +401,8 @@
                   <div class="post-next col-6">
                     
                     
-                      <a href="/2020/03/12/%E4%BA%94%E5%AD%90%E6%A3%8B%E5%8D%B1%E9%99%A9%E5%88%A4%E6%96%AD/">
-                        <span class="hidden-mobile">五子棋危险判断</span>
+                      <a href="/2020/03/13/%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%9B%BF%E6%8D%A2/">
+                        <span class="hidden-mobile">字符串替换</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -458,7 +542,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "字符串替换&nbsp;",
+        "加密文件&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,

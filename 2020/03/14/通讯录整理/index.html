@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="Lucas Tung">
   <meta name="keywords" content="">
-  <title>字符串替换 - Lucas Tung</title>
+  <title>通讯录整理 - Lucas Tung</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
@@ -132,8 +132,8 @@
               
                 <div class="mt-3 post-meta">
                   <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-                  <time datetime="2020-03-13 17:48">
-                    2020年3月13日 下午
+                  <time datetime="2020-03-14 18:19">
+                    2020年3月14日 晚上
                   </time>
                 </div>
               
@@ -143,7 +143,7 @@
                   
                   <span class="post-meta mr-2">
                     <i class="iconfont icon-chart"></i>
-                    456 字
+                    887 字
                   </span>
                 
 
@@ -153,7 +153,7 @@
                       <i class="iconfont icon-clock-fill"></i>
                     
                     
-                    6
+                    12
                      分钟
                   </span>
                 
@@ -182,103 +182,107 @@
           <div class="post-content mx-auto" id="post">
             
             <article class="markdown-body">
-              <h1 id="字符串替换新"><a class="markdownIt-Anchor" href="#字符串替换新"></a> 字符串替换（新）</h1>
+              <h1 id="通讯录整理"><a class="markdownIt-Anchor" href="#通讯录整理"></a> 通讯录整理</h1>
 <h2 id="问题描述"><a class="markdownIt-Anchor" href="#问题描述"></a> 问题描述</h2>
-<p>编写程序将一个指定文件中某一字符串替换为另一个字符串。要求：</p>
-<ol>
-<li>被替换字符串若有多个，均要被替换；</li>
-<li>指定的被替换字 符串，大小写无关。</li>
-</ol>
+<p>读取一组电话号码簿（由姓名和手机号码组成），将重复出现的项删除（姓名和电话号码都相同的项为重复项，只保留第一次出现的项），并对姓名相同手机号码不同的项进行如下整理：首次出现的项不作处理，第一次重复的姓名后面加英文下划线字符_和数字1，第二次重复的姓名后面加英文下划线字符_和数字2，依次类推。号码簿中姓名相同的项数最多不超过10个。最后对整理后的电话号码簿按照姓名进行从小到大排序，并输出排序后的电话号码簿。</p>
 <h2 id="输入形式"><a class="markdownIt-Anchor" href="#输入形式"></a> 输入形式</h2>
-<p>给定文件名为filein.txt。从控制台输入两行字符串（不含空格，行末尾都有回车换行符），分别表示被替换的字符串和替换字符串。</p>
+<p>先从标准输入读取电话号码个数，然后分行输入姓名和电话号码，姓名由不超过20个英文小写字母组成，电话号码由11位数字字符组成，姓名和电话号码之间以一个空格分隔，输入的姓名和电话号码项不超过100个。</p>
 <h2 id="输出形式"><a class="markdownIt-Anchor" href="#输出形式"></a> 输出形式</h2>
-<p>将替换后的结果输出到文件fileout.txt中。</p>
+<p>按照姓名从小到大的顺序分行输出最终的排序结果，先输出姓名再输出电话号码，以一个空格分隔。</p>
 <h2 id="样例输入"><a class="markdownIt-Anchor" href="#样例输入"></a> 样例输入</h2>
-<p>从控制台输入两行字符串：</p>
-<p>in</p>
-<p>out</p>
-<p>文件filein.txt的内容为：</p>
-<pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
-
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>
-<span class="hljs-function"></span>
-<span class="hljs-function"></span>&#123;
-
-  FILE * IN;
-
-  <span class="hljs-keyword">if</span>((IN=fopen(<span class="hljs-string">"in.txt"</span>,<span class="hljs-string">"r"</span>))==<span class="hljs-literal">NULL</span>)
-
-  &#123;
-
-​    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Can&amp;rsquo;t open in.txt!"</span>);
-
-​    <span class="hljs-keyword">return</span>;
-
-  &#125;
-
-  fclose(IN);
-
-&#125;</code></pre>
+<p>15</p>
+<p>liping 13512345678</p>
+<p>zhaohong 13838929457</p>
+<p>qiansan 13900223399</p>
+<p>zhouhao 18578294857</p>
+<p>anhai 13573948758</p>
+<p>liping 13512345678</p>
+<p>zhaohong 13588339922</p>
+<p>liping 13833220099</p>
+<p>boliang 15033778877</p>
+<p>zhaohong 13838922222</p>
+<p>tianyang 18987283746</p>
+<p>sunnan 13599882764</p>
+<p>zhaohong 13099228475</p>
+<p>liushifeng 13874763899</p>
+<p>caibiao 13923567890</p>
 <h2 id="样例输出"><a class="markdownIt-Anchor" href="#样例输出"></a> 样例输出</h2>
-<p>文件fileout.txt的内容应为：</p>
-<pre><code class="hljs c"><span class="hljs-meta">#outclude <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
-
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">maout</span><span class="hljs-params">()</span></span>
-<span class="hljs-function"></span>
-<span class="hljs-function"></span>&#123;
-
-  FILE * out;
-
-  <span class="hljs-keyword">if</span>((out=fopen(<span class="hljs-string">"out.txt"</span>,<span class="hljs-string">"r"</span>))==<span class="hljs-literal">NULL</span>)
-
-  &#123;
-
-​    prouttf(<span class="hljs-string">"Can&amp;rsquo;t open out.txt!"</span>);
-
-​    <span class="hljs-keyword">return</span>;
-
-  &#125;
-
-  fclose(out);
-
-&#125;</code></pre>
+<p>anhai 13573948758</p>
+<p>boliang 15033778877</p>
+<p>caibiao 13923567890</p>
+<p>liping 13512345678</p>
+<p>liping_1 13833220099</p>
+<p>liushifeng 13874763899</p>
+<p>qiansan 13900223399</p>
+<p>sunnan 13599882764</p>
+<p>tianyang 18987283746</p>
+<p>zhaohong 13838929457</p>
+<p>zhaohong_1 13588339922</p>
+<p>zhaohong_2 13838922222</p>
+<p>zhaohong_3 13099228475</p>
+<p>zhouhao 18578294857</p>
 <h2 id="样例说明"><a class="markdownIt-Anchor" href="#样例说明"></a> 样例说明</h2>
-<p>输入的被替换字符串为in，替换字符串为out，即将文件filein.txt中的所有in字符串（包括iN、In、IN字符串）全部替换为out字符串，并输出保存到文件fileout.txt中。</p>
+<p>输入了15个人名和电话号码。其中第一项和第六项完全相同，都是“liping 13512345678”，将第六项删除，第一项保留；</p>
+<p>第八项和第一项人名相同，电话不同，则将第八项的人民整理为liping_1；同样，第二项、第七项、第十项、第十三项的人名都相同，将后面三项的人名分别整理为：zhaohong_1、zhaohong_2和zhaohong_3。</p>
+<p>最后将整理后的电话簿按照姓名进行从小到大排序，分行输出排序结果。</p>
 <h2 id="代码"><a class="markdownIt-Anchor" href="#代码"></a> 代码</h2>
 <pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
 <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string.h&gt;</span></span>
-<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> LEN 100</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">str_process</span><span class="hljs-params">(<span class="hljs-keyword">char</span> p[LEN], <span class="hljs-keyword">char</span> a[LEN], <span class="hljs-keyword">char</span> b[LEN])</span> </span>&#123;
-    <span class="hljs-keyword">int</span> len = <span class="hljs-built_in">strlen</span>(a), i;
-    <span class="hljs-keyword">char</span> *q, r[LEN], s[LEN];
-    <span class="hljs-built_in">strcpy</span>(s, p);
-    <span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-built_in">strlen</span>(s); i++) &#123;
-        <span class="hljs-keyword">if</span> (s[i] &gt;= <span class="hljs-string">'A'</span> &amp;&amp; s[i] &lt;= <span class="hljs-string">'Z'</span>) &#123;
-            s[i] = s[i] + <span class="hljs-number">32</span>;
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdlib.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> NUM 100                                                     <span class="hljs-comment">//元素个数</span></span>
+<span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">address_list</span> &#123;</span>                                       <span class="hljs-comment">//定义结构体</span>
+    <span class="hljs-keyword">char</span> name[<span class="hljs-number">21</span>];
+    <span class="hljs-keyword">char</span> num[<span class="hljs-number">12</span>];
+&#125; LIST;
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">process_repeat</span><span class="hljs-params">(LIST address[NUM],<span class="hljs-keyword">int</span> n)</span> </span>&#123;                       <span class="hljs-comment">//处理重复数据</span>
+    <span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>, j = <span class="hljs-number">0</span>, k = <span class="hljs-number">0</span>, count = <span class="hljs-number">0</span>;
+    LIST tmp;
+    <span class="hljs-keyword">char</span> num[<span class="hljs-number">4</span>];
+    <span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;
+        <span class="hljs-keyword">for</span> (j = i + <span class="hljs-number">1</span>; j &lt; n; j++) &#123;
+            <span class="hljs-keyword">if</span> (<span class="hljs-built_in">strcmp</span>(address[i].num, address[j].num) == <span class="hljs-number">0</span>) &#123;      <span class="hljs-comment">//先按照电话号码重复</span>
+                n--;                                                <span class="hljs-comment">//删除重复数据，避免</span>
+                <span class="hljs-keyword">for</span> (k = j; k &lt; n; k++) &#123;							<span class="hljs-comment">//用姓名查找时2加角</span>
+                    address[k] = address[k + <span class="hljs-number">1</span>];					<span class="hljs-comment">//标导致的错误</span>
+                &#125;
+                j--;
+            &#125;
+        &#125;
+        count = <span class="hljs-number">0</span>;                                                  <span class="hljs-comment">//每次要初始化计数</span>
+        <span class="hljs-keyword">for</span> (j = i + <span class="hljs-number">1</span>; j &lt; n; j++) &#123;                               <span class="hljs-comment">//为姓名重复添加角标</span>
+            <span class="hljs-keyword">if</span> (<span class="hljs-built_in">strcmp</span>(address[i].name, address[j].name) == <span class="hljs-number">0</span>) &#123;
+                count += <span class="hljs-number">1</span>;
+                <span class="hljs-keyword">if</span> (count == <span class="hljs-number">10</span>) &#123;
+                    <span class="hljs-built_in">strcpy</span>(num, <span class="hljs-string">"_10"</span>);
+                    <span class="hljs-built_in">strcat</span>(address[j].name, num);
+                &#125; <span class="hljs-keyword">else</span> &#123;
+                    num[<span class="hljs-number">0</span>] = <span class="hljs-string">'_'</span>;
+                    num[<span class="hljs-number">1</span>] = count + <span class="hljs-string">'0'</span>;
+                    num[<span class="hljs-number">2</span>] = <span class="hljs-string">'\0'</span>;
+                    <span class="hljs-built_in">strcat</span>(address[j].name, num);
+                &#125;
+            &#125;
         &#125;
     &#125;
-    <span class="hljs-keyword">while</span> ((q = <span class="hljs-built_in">strstr</span>(s, a)) != <span class="hljs-literal">NULL</span>) &#123;
-        p[q - s] = <span class="hljs-string">'\0'</span>;
-        <span class="hljs-built_in">strcpy</span>(r, p + (q - s) + len);
-        <span class="hljs-built_in">strcat</span>(p, b);
-        <span class="hljs-built_in">strcat</span>(p, r);
-        *q = <span class="hljs-string">'\0'</span>;
-        <span class="hljs-built_in">strcpy</span>(r, q + len);
-        <span class="hljs-built_in">strcat</span>(s, b);
-        <span class="hljs-built_in">strcat</span>(s, r);
-    &#125;
+    <span class="hljs-keyword">return</span> n;                                                       <span class="hljs-comment">//返回元素个数</span>
+&#125;
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">cmp</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">void</span> *p,<span class="hljs-keyword">const</span> <span class="hljs-keyword">void</span> *q)</span> </span>&#123;                              <span class="hljs-comment">//qsort的比较函数</span>
+    <span class="hljs-keyword">int</span> c;
+    c = <span class="hljs-built_in">strcmp</span>((*(LIST *) p).name, (*(LIST *) q).name);             <span class="hljs-comment">//结构体快排的重点</span>
+    <span class="hljs-keyword">if</span> (c &gt; <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;
 &#125;
 <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;
-    <span class="hljs-keyword">char</span> c[LEN], a[LEN], b[LEN];
-    gets(a);
-    gets(b);
-    <span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;
-    FILE *IN, *OUT;
-    IN = fopen(<span class="hljs-string">"filein.txt"</span>, <span class="hljs-string">"r"</span>);
-    OUT = fopen(<span class="hljs-string">"fileout.txt"</span>, <span class="hljs-string">"w"</span>);
-    <span class="hljs-keyword">while</span> (fgets(c, LEN, IN)) &#123;
-        str_process(c, a, b);
-        <span class="hljs-built_in">fputs</span>(c, OUT);
+    <span class="hljs-keyword">int</span> n = <span class="hljs-number">0</span>, i = <span class="hljs-number">0</span>;
+    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d"</span>, &amp;n);
+    LIST address[NUM];
+    <span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;
+        <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%s %s"</span>, address[i].name, address[i].num);
+    &#125;
+    n = process_repeat(address, n);                                 <span class="hljs-comment">//获取新的元素个数</span>
+    qsort(address, n, <span class="hljs-keyword">sizeof</span>(LIST), cmp);                           <span class="hljs-comment">//结构体快排</span>
+    <span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%s %s\n"</span>, address[i].name, address[i].num);
     &#125;
     <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
 &#125;</code></pre>
@@ -298,6 +302,17 @@
                   </div>
                 
                 
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E7%BB%93%E6%9E%84%E4%BD%93/">结构体</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E9%93%BE%E8%A1%A8/">链表</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/">快速排序</a>
+                    
+                  </div>
+                
               </div>
               
                 <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
@@ -307,9 +322,9 @@
                   <div class="post-prev col-6">
                     
                     
-                      <a href="/2020/03/13/%E5%8A%A0%E5%AF%86%E6%96%87%E4%BB%B6/">
+                      <a href="/2020/03/14/%E5%B0%8F%E5%9E%8B%E5%9B%BE%E4%B9%A6%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">加密文件</span>
+                        <span class="hidden-mobile">小型图书管理系统</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -317,8 +332,8 @@
                   <div class="post-next col-6">
                     
                     
-                      <a href="/2020/03/12/%E4%BA%94%E5%AD%90%E6%A3%8B%E5%8D%B1%E9%99%A9%E5%88%A4%E6%96%AD/">
-                        <span class="hidden-mobile">五子棋危险判断</span>
+                      <a href="/2020/03/13/%E5%8A%A0%E5%AF%86%E6%96%87%E4%BB%B6/">
+                        <span class="hidden-mobile">加密文件</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -458,7 +473,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "字符串替换&nbsp;",
+        "通讯录整理&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,

@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="Lucas Tung">
   <meta name="keywords" content="">
-  <title>字符串替换 - Lucas Tung</title>
+  <title>小型图书管理系统 - Lucas Tung</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
@@ -132,8 +132,8 @@
               
                 <div class="mt-3 post-meta">
                   <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-                  <time datetime="2020-03-13 17:48">
-                    2020年3月13日 下午
+                  <time datetime="2020-03-14 18:25">
+                    2020年3月14日 晚上
                   </time>
                 </div>
               
@@ -143,7 +143,7 @@
                   
                   <span class="post-meta mr-2">
                     <i class="iconfont icon-chart"></i>
-                    456 字
+                    1.4k 字
                   </span>
                 
 
@@ -153,7 +153,7 @@
                       <i class="iconfont icon-clock-fill"></i>
                     
                     
-                    6
+                    18
                      分钟
                   </span>
                 
@@ -182,104 +182,129 @@
           <div class="post-content mx-auto" id="post">
             
             <article class="markdown-body">
-              <h1 id="字符串替换新"><a class="markdownIt-Anchor" href="#字符串替换新"></a> 字符串替换（新）</h1>
+              <p>##小型图书管理系统</p>
 <h2 id="问题描述"><a class="markdownIt-Anchor" href="#问题描述"></a> 问题描述</h2>
-<p>编写程序将一个指定文件中某一字符串替换为另一个字符串。要求：</p>
+<p>小明同学特别喜欢买书看书。由于书较多，摆放杂乱，找起来非常麻烦。这学期小明同学上了数据结构与程序设计课后，决定改变这种状况：用C开发一个小型图书管理系统。系统中包含的图书信息有：书名、作者、出版社、出版日期等。首先，图书管理系统对已有的书（原始书库，存放在一个文本文件中）按书名字典序进行（排序）摆放（即将原始无序的图书信息文件生成一个有序的文件，即新书库），以便查找。该管理系统可以对新书库中图书条目进行如下操作：</p>
 <ol>
-<li>被替换字符串若有多个，均要被替换；</li>
-<li>指定的被替换字 符串，大小写无关。</li>
+<li>录入。新增书录入到书库中（即从输入中读入一条图书信息插入到已排序好的图书文件相关位置处）</li>
+<li>查找。按书名或书名中关键字信息在书库中查找相关图书信息，若有多本书，按字典序输出。</li>
+<li>删除。输入书名或书名中关键字信息，从书库中查找到相关书并将其删除，并更新书库。</li>
 </ol>
-<h2 id="输入形式"><a class="markdownIt-Anchor" href="#输入形式"></a> 输入形式</h2>
-<p>给定文件名为filein.txt。从控制台输入两行字符串（不含空格，行末尾都有回车换行符），分别表示被替换的字符串和替换字符串。</p>
+<p>##输入形式</p>
+<p>原始的图书信息（原始书库）保存在当前目录下的books.txt中。<br />
+用户操作从控制台读入，首先输入操作功能序号（1代表录入操作，2代表查找操作，3代表删除操作，0代表将已更新的图书信息保存到书库中并退出程序），然后在下一行输入相应的操作信息（录入操作后要输入一条图书信息，查找和删除操作后只要输入书名或书名中部分信息）。程序支行过程中可以进行多次操作，直到退出（输入操作0）程序。<br />
+要求：</p>
+<ol>
+<li>原始文件中的图书信息与录入的图书信息格式相同，每条图书信息都在一行上，包括书名（不超过50个字符）、作者（不超过20个字符）、出版社（不超过30个字符）和出版日期（不超过10个字符），只由英文字母和下划线组成，用一个空格分隔。图书信息总条数不会超过500.</li>
+<li>下划线字符参加排序。</li>
+<li>图书不会重名。</li>
+</ol>
 <h2 id="输出形式"><a class="markdownIt-Anchor" href="#输出形式"></a> 输出形式</h2>
-<p>将替换后的结果输出到文件fileout.txt中。</p>
+<p>进行录入和删除操作，系统会更新图书信息，但不会在控制台窗口显示任何信息。<br />
+进行查找操作后，将在控制台按书名字典序分行输出查找到的图书信息，书名占50个字符宽度，作者占20个字符宽度，出版社占30个字符宽度，出版日期占10个字符宽度，都靠左对齐输出。<br />
+最终按字典排序的图书信息保存在当前目录下的ordered.txt中，每条图书信息占一行，格式与查找输出的图书信息相同。</p>
 <h2 id="样例输入"><a class="markdownIt-Anchor" href="#样例输入"></a> 样例输入</h2>
-<p>从控制台输入两行字符串：</p>
-<p>in</p>
-<p>out</p>
-<p>文件filein.txt的内容为：</p>
-<pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
-
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>
-<span class="hljs-function"></span>
-<span class="hljs-function"></span>&#123;
-
-  FILE * IN;
-
-  <span class="hljs-keyword">if</span>((IN=fopen(<span class="hljs-string">"in.txt"</span>,<span class="hljs-string">"r"</span>))==<span class="hljs-literal">NULL</span>)
-
-  &#123;
-
-​    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Can&amp;rsquo;t open in.txt!"</span>);
-
-​    <span class="hljs-keyword">return</span>;
-
-  &#125;
-
-  fclose(IN);
-
-&#125;</code></pre>
-<h2 id="样例输出"><a class="markdownIt-Anchor" href="#样例输出"></a> 样例输出</h2>
-<p>文件fileout.txt的内容应为：</p>
-<pre><code class="hljs c"><span class="hljs-meta">#outclude <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
-
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">maout</span><span class="hljs-params">()</span></span>
-<span class="hljs-function"></span>
-<span class="hljs-function"></span>&#123;
-
-  FILE * out;
-
-  <span class="hljs-keyword">if</span>((out=fopen(<span class="hljs-string">"out.txt"</span>,<span class="hljs-string">"r"</span>))==<span class="hljs-literal">NULL</span>)
-
-  &#123;
-
-​    prouttf(<span class="hljs-string">"Can&amp;rsquo;t open out.txt!"</span>);
-
-​    <span class="hljs-keyword">return</span>;
-
-  &#125;
-
-  fclose(out);
-
-&#125;</code></pre>
+<p><strong>假设books.txt中保存的原始图书信息为：</strong><br />
+The_C_programming_language Kernighan Prentice_Hall 1988<br />
+Programming_in_C Yin_Bao_Lin China_Machine_Press 2013<br />
+Data_structures_and_Algorithm_Analysis_in_C Mark_Allen_Weiss Addison_Wesley 1997<br />
+ANSI_and_ISO_Standard_c Plauger Microsoft_Press 1992<br />
+Data_structures_and_program_design_in_C Robert_Kruse Pearson_Education 1997<br />
+Computer_network_architectures Anton_Meijer Computer_Science_Press 1983<br />
+C_programming_guidelines Thomas_Plum Prentice_Hall 1984<br />
+Data_structures_using_C Tenenbaum Prentice_Hall 1990<br />
+Operating_system_concepts Peterson Addison_Wesley 1983<br />
+Computer_networks_and_internets Douglas_E_Come Electronic_Industry 2017<br />
+<strong>用户控制台输入信息为：</strong><br />
+1<br />
+Data_structures_and_C_programs Christopher Addison_Wesley 1988<br />
+2<br />
+structure<br />
+1<br />
+The_C_programming_tutor Leon_A_Wortman R_J_Brady 1984<br />
+2<br />
+rogram<br />
+3<br />
+rogramming<br />
+0</p>
+<p>##样例输出</p>
+<p><strong>用户输入“2 structure”后，控制台输出：</strong><img src="D:%5CDesktop%5CSdudies%5C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%5C%E4%BB%A3%E7%A0%81%5CPictures%5Cbooks1.jpg" srcset="/img/loading.gif" alt="books1" /></p>
+<p><strong>用户输入“2 rogram”后，控制台输出：</strong><img src="D:%5CDesktop%5CSdudies%5C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%5C%E4%BB%A3%E7%A0%81%5CPictures%5Cbooks2.jpg" srcset="/img/loading.gif" alt="books2" /></p>
+<p><strong>ordered.txt文件内容为：</strong><img src="D:%5CDesktop%5CSdudies%5C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%5C%E4%BB%A3%E7%A0%81%5CPictures%5Cbooks3.jpg" srcset="/img/loading.gif" alt="books3" /></p>
 <h2 id="样例说明"><a class="markdownIt-Anchor" href="#样例说明"></a> 样例说明</h2>
-<p>输入的被替换字符串为in，替换字符串为out，即将文件filein.txt中的所有in字符串（包括iN、In、IN字符串）全部替换为out字符串，并输出保存到文件fileout.txt中。</p>
+<p>先读入books.txt中的10条图书信息，按照书名进行字典序排序；用户进行了五次操作，然后退出：第一次操作是插入了一条图书信息，这时有11条图书信息，按书名字典序排序为：<br />
+ANSI_and_ISO_Standard_c Plauger Microsoft_Press 1992<br />
+C_programming_guidelines Thomas_Plum Prentice_Hall 1984<br />
+Computer_network_architectures Anton_Meijer Computer_Science_Press 1983<br />
+Computer_networks_and_internets Douglas_E_Come Electronic_Industry 2017<br />
+Data_structures_and_Algorithm_Analysis_in_C Mark_Allen_Weiss Addison_Wesley 1997<br />
+Data_structures_and_C_programs Christopher Addison_Wesley 1988<br />
+Data_structures_and_program_design_in_C Robert_Kruse Pearson_Education 1997<br />
+Data_structures_using_C Tenenbaum Prentice_Hall 1990<br />
+Operating_system_concepts Peterson Addison_Wesley 1983<br />
+Programming_in_C Yin_Bao_Lin China_Machine_Press 2013<br />
+The_C_programming_language Kernighan Prentice_Hall 1988<br />
+第二次操作是查找书名包含structure的图书，有4本图书信息按照格式要求输出到屏幕；第三次操作又插入了一条图书信息，这时有12条图书信息；第四次操作查找书名包含rogram的图书，有6本图书信息按照格式要求输出到屏幕；第五次操作是删除书名包含rogramming的图书信息，有四条图书信息要删除，剩下八条图书信息；最后退出程序前将剩余的八条图书信息按照格式要求存储在ordered.txt文件中。</p>
 <h2 id="代码"><a class="markdownIt-Anchor" href="#代码"></a> 代码</h2>
 <pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdlib.h&gt;</span></span>
 <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string.h&gt;</span></span>
-<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> LEN 100</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">str_process</span><span class="hljs-params">(<span class="hljs-keyword">char</span> p[LEN], <span class="hljs-keyword">char</span> a[LEN], <span class="hljs-keyword">char</span> b[LEN])</span> </span>&#123;
-    <span class="hljs-keyword">int</span> len = <span class="hljs-built_in">strlen</span>(a), i;
-    <span class="hljs-keyword">char</span> *q, r[LEN], s[LEN];
-    <span class="hljs-built_in">strcpy</span>(s, p);
-    <span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-built_in">strlen</span>(s); i++) &#123;
-        <span class="hljs-keyword">if</span> (s[i] &gt;= <span class="hljs-string">'A'</span> &amp;&amp; s[i] &lt;= <span class="hljs-string">'Z'</span>) &#123;
-            s[i] = s[i] + <span class="hljs-number">32</span>;
-        &#125;
-    &#125;
-    <span class="hljs-keyword">while</span> ((q = <span class="hljs-built_in">strstr</span>(s, a)) != <span class="hljs-literal">NULL</span>) &#123;
-        p[q - s] = <span class="hljs-string">'\0'</span>;
-        <span class="hljs-built_in">strcpy</span>(r, p + (q - s) + len);
-        <span class="hljs-built_in">strcat</span>(p, b);
-        <span class="hljs-built_in">strcat</span>(p, r);
-        *q = <span class="hljs-string">'\0'</span>;
-        <span class="hljs-built_in">strcpy</span>(r, q + len);
-        <span class="hljs-built_in">strcat</span>(s, b);
-        <span class="hljs-built_in">strcat</span>(s, r);
-    &#125;
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> ELEMENT 100</span>
+<span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">books</span> &#123;</span>
+    <span class="hljs-keyword">char</span> name[<span class="hljs-number">51</span>];
+    <span class="hljs-keyword">char</span> author[<span class="hljs-number">21</span>];
+    <span class="hljs-keyword">char</span> <span class="hljs-built_in">press</span>[<span class="hljs-number">31</span>];
+    <span class="hljs-keyword">char</span> date[<span class="hljs-number">11</span>];
+&#125; BOOKS;
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">cmp</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">void</span> *p,<span class="hljs-keyword">const</span> <span class="hljs-keyword">void</span> *q)</span> </span>&#123;
+    <span class="hljs-keyword">int</span> c;
+    c = <span class="hljs-built_in">strcmp</span>((*(BOOKS *) p).name, (*(BOOKS *) q).name);
+    <span class="hljs-keyword">if</span> (c &gt; <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;
 &#125;
 <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;
-    <span class="hljs-keyword">char</span> c[LEN], a[LEN], b[LEN];
-    gets(a);
-    gets(b);
-    <span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">int</span> oprt = <span class="hljs-number">0</span>, i = <span class="hljs-number">0</span>, j = <span class="hljs-number">0</span>, n = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">char</span> str[<span class="hljs-number">51</span>];
+    BOOKS book[ELEMENT];
     FILE *IN, *OUT;
-    IN = fopen(<span class="hljs-string">"filein.txt"</span>, <span class="hljs-string">"r"</span>);
-    OUT = fopen(<span class="hljs-string">"fileout.txt"</span>, <span class="hljs-string">"w"</span>);
-    <span class="hljs-keyword">while</span> (fgets(c, LEN, IN)) &#123;
-        str_process(c, a, b);
-        <span class="hljs-built_in">fputs</span>(c, OUT);
+    IN = fopen(<span class="hljs-string">"books.txt"</span>, <span class="hljs-string">"r"</span>);
+    OUT = fopen(<span class="hljs-string">"ordered.txt"</span>, <span class="hljs-string">"w"</span>);
+    <span class="hljs-keyword">while</span> (<span class="hljs-built_in">fscanf</span>(IN, <span class="hljs-string">"%s %s %s %s"</span>, book[n].name, book[n].author, book[n].<span class="hljs-built_in">press</span>, book[n].date) != EOF) &#123;
+        n++;
     &#125;
+    qsort(book, n, <span class="hljs-keyword">sizeof</span>(BOOKS), cmp);
+    <span class="hljs-keyword">while</span> (<span class="hljs-number">1</span>) &#123;
+        <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d"</span>, &amp;oprt);
+        <span class="hljs-keyword">if</span> (oprt == <span class="hljs-number">0</span>) &#123;
+            <span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;
+                <span class="hljs-built_in">fprintf</span>(OUT, <span class="hljs-string">"%-50s%-20s%-30s%-10s\n"</span>, book[i].name, book[i].author, book[i].<span class="hljs-built_in">press</span>, book[i].date);
+            &#125;
+            <span class="hljs-keyword">break</span>;
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (oprt == <span class="hljs-number">1</span>) &#123;
+            <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%s %s %s %s"</span>, book[n].name, book[n].author, book[n].<span class="hljs-built_in">press</span>, book[n].date);
+            n++;
+            qsort(book, n, <span class="hljs-keyword">sizeof</span>(BOOKS), cmp);
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (oprt == <span class="hljs-number">2</span>) &#123;
+            <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%s"</span>, str);
+            <span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;
+                <span class="hljs-keyword">if</span> (<span class="hljs-built_in">strstr</span>(book[i].name, str)) &#123;
+                    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%-50s%-20s%-30s%-10s\n"</span>, book[i].name, book[i].author, book[i].<span class="hljs-built_in">press</span>, book[i].date);
+                &#125;
+            &#125;
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (oprt == <span class="hljs-number">3</span>) &#123;
+            <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%s"</span>, str);
+            <span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;
+                <span class="hljs-keyword">if</span> (<span class="hljs-built_in">strstr</span>(book[i].name, str)) &#123;
+                    n = n - <span class="hljs-number">1</span>;
+                    <span class="hljs-keyword">for</span> (j = i; j &lt; n; j++) &#123;
+                        book[j] = book[j + <span class="hljs-number">1</span>];
+                    &#125;
+                    i--;
+                &#125;
+            &#125;
+        &#125;
+    &#125;
+
     <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
 &#125;</code></pre>
 
@@ -298,6 +323,17 @@
                   </div>
                 
                 
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E7%BB%93%E6%9E%84%E4%BD%93/">结构体</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E9%93%BE%E8%A1%A8/">链表</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/">快速排序</a>
+                    
+                  </div>
+                
               </div>
               
                 <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
@@ -307,9 +343,9 @@
                   <div class="post-prev col-6">
                     
                     
-                      <a href="/2020/03/13/%E5%8A%A0%E5%AF%86%E6%96%87%E4%BB%B6/">
+                      <a href="/2020/05/22/%E5%8A%A0%E5%AF%86%E6%96%87%E4%BB%B61/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">加密文件</span>
+                        <span class="hidden-mobile">加密文件1</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -317,8 +353,8 @@
                   <div class="post-next col-6">
                     
                     
-                      <a href="/2020/03/12/%E4%BA%94%E5%AD%90%E6%A3%8B%E5%8D%B1%E9%99%A9%E5%88%A4%E6%96%AD/">
-                        <span class="hidden-mobile">五子棋危险判断</span>
+                      <a href="/2020/03/14/%E9%80%9A%E8%AE%AF%E5%BD%95%E6%95%B4%E7%90%86/">
+                        <span class="hidden-mobile">通讯录整理</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -458,7 +494,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "字符串替换&nbsp;",
+        "小型图书管理系统&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
