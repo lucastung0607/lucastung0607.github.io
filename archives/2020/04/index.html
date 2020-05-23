@@ -212,6 +212,29 @@
   
 
   
+    <!-- APlayer 音乐播放器 -->
+    <div id="aplayer"></div>
+    <script defer src="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.js" ></script>
+<link  rel="stylesheet" href="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.css" />
+<script type="text/javascript">
+  var oldLoadAp = window.onload;
+  window.onload = function () {
+    oldLoadAp && oldLoadAp();
+
+    new APlayer({
+      container: document.getElementById('aplayer'),
+      fixed: true,
+      autoplay: 'false' === 'true',
+      loop: 'all',
+      order: 'random',
+      theme: '#b7daff',
+      preload: 'none',
+      audio: [{"name":"城南花已开-吉他版","artist":"三亩地","url":"/songs/三亩地 - 城南花开-吉他版.flac","cover":"/img/cover_chengnan.jpg"},{"name":"One more time, One more chance Piano ver","artist":"天門","url":"天門 - One more time, One more chance Piano ver.flac","cover":"cover_onemoretime.jpg"}]
+    });
+  }
+</script>
+
+  
 
   
     <div class="col-lg-7 mx-auto nopadding-md">
