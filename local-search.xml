@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>Hexo博客搭建——基于GitHub Pages</title>
+    <link href="/2020/05/26/hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E2%80%94%E2%80%94%E5%9F%BA%E4%BA%8EGitHub-Pages/"/>
+    <url>/2020/05/26/hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E2%80%94%E2%80%94%E5%9F%BA%E4%BA%8EGitHub-Pages/</url>
+    
+    <content type="html"><![CDATA[<h1 id="hexo博客搭建基于github-pages"><a class="markdownIt-Anchor" href="#hexo博客搭建基于github-pages"></a> Hexo博客搭建——基于GitHub Pages</h1><h2 id="hexo-简介"><a class="markdownIt-Anchor" href="#hexo-简介"></a> Hexo 简介</h2><p>Hexo是一款基于Node.js的静态博客框架，可以方便的生成静态网页托管在GitHub，是最低成本搭建个人博客的方式之一。</p><h2 id="搭建步骤"><a class="markdownIt-Anchor" href="#搭建步骤"></a> 搭建步骤</h2><ol><li>购买个人域名</li><li>注册Github</li><li>创建Github仓库</li><li>安装Git</li><li>安装Node.js</li><li>安装Hexo</li><li>测试运行</li><li>推送网站</li><li>更换主题</li><li>发布文章</li></ol><h3 id="购买个人域名"><a class="markdownIt-Anchor" href="#购买个人域名"></a> 购买个人域名</h3><p>首先，于各类申请域名网站进行域名申请，推荐腾讯云与阿里云，时常有活动，价格优惠，备案方便。同时在其他地方注册的域名也可以转入腾讯云进行管理，较为方便。</p><p>域名选择可以根据自己喜好，起一个自己喜欢的名字，找一个价格公道但不过于小众奇特的域名后缀。</p><p>域名申请后要进行实名认证，关于备案个人网站应该无需备案。</p><h3 id="注册github"><a class="markdownIt-Anchor" href="#注册github"></a> 注册GitHub</h3><p>进入Github官网，进行注册，记得邮件激活账号。</p><p>注册的名字要谨慎考虑，因为后面所要求建库的名字要求使用账户名字，所以建议小写并尽可能简短。如果已有账号也可再申请一个专门用作博客使用，而名字大可不必讲究，因为之后会用先前注册的域名来访问博客，账号名字不会再出现在眼前。</p><h3 id="创建github仓库"><a class="markdownIt-Anchor" href="#创建github仓库"></a> 创建Github仓库</h3><p>登录Github，在右上角加号处选择New repository，<strong>仓库名字应格外注意：<a href="http://xn--eqr924avxo.github.io" target="_blank" rel="noopener">用户名.github.io</a></strong></p><p>一定按照此规则命名，博主当时便是起了其他名字，当然也可以使用，但是访问时不可直接用<strong><a href="http://xn--eqr924avxo.github.io" target="_blank" rel="noopener">用户名.github.io</a></strong>进行访问，而应在用户名后再加上仓库名字的二级域名处访问，而且会出现404，排版错误等现象，因此一定要用用户名创建仓库。</p><h3 id="安装git"><a class="markdownIt-Anchor" href="#安装git"></a> 安装Git</h3><p>从Git官网下载相应安装包，安装完毕后在开始菜单中找到Git Bash并打开</p><p>设置user.name与user.email信息</p><pre><code class="hljs plain">git config --global user.name &quot;Github用户名&quot;git config --global user.email &quot;Github注册邮箱&quot;</code></pre><p><em>注：若之后更换GitHub账户密码，可通过 控制面板 – 用户账户 – 凭据管理器 – Windows凭据 – 普通凭据 – git:<a href="https://github.xn--com-8n0ej92b0zrfm5bmt1a" target="_blank" rel="noopener">https://github.com处编辑修改</a></em></p><h4 id="生成ssh密钥文件"><a class="markdownIt-Anchor" href="#生成ssh密钥文件"></a> 生成ssh密钥文件</h4><p><code>ssh-keygen -t rsa -C &quot;GitHub注册邮箱&quot;</code></p><p>无需填入密码，可直接进行回车</p><p>注意输入存储地址时，直接按照其提示的括号中输入即可，即将文件保存在.ssh文件夹中。</p><p>找到.ssh文件夹中id_rsa.pub密钥（公钥），将其全部复制（用记事本打开即可）</p><p>打开GitHub – settings – keys，新建new SSH Key</p><p>Title可任意填写</p><p>在Key中粘贴所复制的内容，点击Add SSH Key。</p><h4 id="检查是否输入成功"><a class="markdownIt-Anchor" href="#检查是否输入成功"></a> 检查是否输入成功</h4><p>在Git Bash 中输入<code>ssh git@github.com</code></p><p>若出现<code>Hi xxx! You've successfully authenticated</code>即为成功，若出现失败但有（y/n）字样，输入y回车即可看到上述成功字样。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>hexo</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>记录</tag>
+      
+      <tag>经验</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>词频统计</title>
     <link href="/2020/04/05/%E8%AF%8D%E9%A2%91%E7%BB%9F%E8%AE%A1/"/>
     <url>/2020/04/05/%E8%AF%8D%E9%A2%91%E7%BB%9F%E8%AE%A1/</url>
