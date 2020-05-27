@@ -145,7 +145,7 @@
                   
                   <span class="post-meta mr-2">
                     <i class="iconfont icon-chart"></i>
-                    781 字
+                    1.5k 字
                   </span>
                 
 
@@ -155,7 +155,7 @@
                       <i class="iconfont icon-clock-fill"></i>
                     
                     
-                    8
+                    17
                      分钟
                   </span>
                 
@@ -185,7 +185,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2020年5月26日 凌晨
+                  本文最后更新于：2020年5月27日 下午
                 
               </p>
             
@@ -205,6 +205,7 @@
 <li>推送网站</li>
 <li>更换主题</li>
 <li>发布文章</li>
+<li>技巧</li>
 </ol>
 <h3 id="购买个人域名"><a class="markdownIt-Anchor" href="#购买个人域名"></a> 购买个人域名</h3>
 <p>首先，于各类申请域名网站进行域名申请，推荐腾讯云与阿里云，时常有活动，价格优惠，备案方便。同时在其他地方注册的域名也可以转入腾讯云进行管理，较为方便。</p>
@@ -217,7 +218,7 @@
 <p>登录Github，在右上角加号处选择New repository，<strong>仓库名字应格外注意：<a href="http://xn--eqr924avxo.github.io" target="_blank" rel="noopener">用户名.github.io</a></strong></p>
 <p>一定按照此规则命名，博主当时便是起了其他名字，当然也可以使用，但是访问时不可直接用<strong><a href="http://xn--eqr924avxo.github.io" target="_blank" rel="noopener">用户名.github.io</a></strong>进行访问，而应在用户名后再加上仓库名字的二级域名处访问，而且会出现404，排版错误等现象，因此一定要用用户名创建仓库。</p>
 <h3 id="安装git"><a class="markdownIt-Anchor" href="#安装git"></a> 安装Git</h3>
-<p>从Git官网下载相应安装包，安装完毕后在开始菜单中找到Git Bash并打开</p>
+<p>从<a href="https://git-scm.com/download/win" target="_blank" rel="noopener">Git官网</a>下载相应安装包，安装完毕后在开始菜单中找到Git Bash并打开</p>
 <p>设置user.name与user.email信息</p>
 <pre><code class="hljs plain">git config --global user.name &quot;Github用户名&quot;
 git config --global user.email &quot;Github注册邮箱&quot;</code></pre>
@@ -233,6 +234,117 @@ git config --global user.email &quot;Github注册邮箱&quot;</code></pre>
 <h4 id="检查是否输入成功"><a class="markdownIt-Anchor" href="#检查是否输入成功"></a> 检查是否输入成功</h4>
 <p>在Git Bash 中输入<code>ssh git@github.com</code></p>
 <p>若出现<code>Hi xxx! You've successfully authenticated</code>即为成功，若出现失败但有（y/n）字样，输入y回车即可看到上述成功字样。</p>
+<h2 id="安装nodejs"><a class="markdownIt-Anchor" href="#安装nodejs"></a> 安装Node.js</h2>
+<p>进入<a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">官网</a>下载Node.js，安装</p>
+<p>安装后进入cmd检测Node.js是否安装成功，输入<code>node -v</code></p>
+<p>出现<code>v*.*.*</code>即为成功</p>
+<p>检测npm是否安装成功，输入<code>npm -v</code></p>
+<p>出现<code>*.*.*</code>即为成功</p>
+<h2 id="安装hexo"><a class="markdownIt-Anchor" href="#安装hexo"></a> 安装Hexo</h2>
+<p>首先在电脑中创建一个文件夹，记住文件夹位置</p>
+<p>打开cmd</p>
+<p>在cmd中打开文件夹</p>
+<p>使用npm安装Hexo，输入<code>npm install -g hexo-cli</code></p>
+<h2 id="测试运行"><a class="markdownIt-Anchor" href="#测试运行"></a> 测试运行</h2>
+<ol>
+<li>
+<p>初始化博客（新建博客文件）</p>
+<p>输入：<code>hexo init ***</code>***即为此博客文件的命名</p>
+<p>在cmd中进入<strong>新建的</strong>文件夹操作</p>
+<p>输入以下命令</p>
+<ul>
+<li><code>hexo new ***</code>新建博客文章，***为文章名字</li>
+<li><code>hexo g</code>生成网站文件</li>
+<li><code>hexo s</code>在本地服务器测试运行</li>
+</ul>
+</li>
+<li>
+<p>打开浏览器，输入<code>localhost:4000</code>地址</p>
+<p>即可看到新建的文章</p>
+</li>
+</ol>
+<h2 id="推送网站"><a class="markdownIt-Anchor" href="#推送网站"></a> 推送网站</h2>
+<p>完成本地预览后，即可进行推送网站</p>
+<ol>
+<li>
+<p>进入博客文件夹，打开名为**<em>config.yml</em>**的文件</p>
+</li>
+<li>
+<p>到文件末尾改为</p>
+<pre><code class="hljs plain">deploy:
+	type: git
+	repo: https:&#x2F;&#x2F;所创建的GitHub仓库完整路径
+	branc: master</code></pre>
+</li>
+<li>
+<p>注意一定保存文件</p>
+</li>
+<li>
+<p>为hexo安装Git部署插件</p>
+<p><code>npm install hexo-deployer-git --save</code></p>
+</li>
+<li>
+<p>输入三条命令</p>
+<p><code>hexo clean</code>清除所生成的网站文件</p>
+<p><code>hexo g</code>生成网站文件</p>
+<p><code>hexo d</code>推送网站文件至GitHub</p>
+</li>
+<li>
+<p>打开<code>***.github.io</code>***为GitHub用户名，即可看到网页</p>
+</li>
+</ol>
+<h3 id="绑定域名"><a class="markdownIt-Anchor" href="#绑定域名"></a> 绑定域名</h3>
+<p>进入所购买域名的控制平台，进入解析</p>
+<p>添加解析：</p>
+<ol>
+<li>
+<p>记录类型：A</p>
+<p>主机记录：@</p>
+<p>记录值：185.199.109.153</p>
+</li>
+<li>
+<p>记录类型：A</p>
+<p>主机记录：@</p>
+<p>记录值：185.199.110.153</p>
+</li>
+<li>
+<p>记录类型：CNAME</p>
+<p>主机记录：www</p>
+<p>记录值：***.github.io</p>
+</li>
+</ol>
+<p>进入GitHub，进入仓库，进入settings，设置Custom domain，输入所申请的域名，save保存</p>
+<p>进入本地博客文件夹source目录，创建记事本文件，名为CNAME，<strong>不要带文件后缀</strong></p>
+<p>输入所申请的域名，<strong>不要写www.</strong></p>
+<p>进入cmd，进入博客文件夹，输入</p>
+<p>​	<code>hexo clean</code>清除所生成的网站文件</p>
+<p>​	<code>hexo g</code>生成网站文件</p>
+<p>​	<code>hexo d</code>推送网站文件至GitHub</p>
+<p>在浏览器输入申请的网址即可访问博客网页</p>
+<h2 id="更换主题"><a class="markdownIt-Anchor" href="#更换主题"></a> 更换主题</h2>
+<p>首先进入<a href="https://hexo.io/themes/" target="_blank" rel="noopener">主题</a>网站</p>
+<p>选取喜欢的主题，点击进入GitHub下载</p>
+<p>解压至博客文件夹中</p>
+<p>打开博客的**<em>config.yml</em>**文件做如下修改</p>
+<pre><code class="hljs plain"># Extensions
+## Plugins: https:&#x2F;&#x2F;hexo.io&#x2F;plugins&#x2F;
+## Themes: https:&#x2F;&#x2F;hexo.io&#x2F;themes&#x2F;
+theme: ***解压后主题文件夹的名字</code></pre>
+<p>重新发布网站即可</p>
+<h2 id="发布文章"><a class="markdownIt-Anchor" href="#发布文章"></a> 发布文章</h2>
+<p>在cmd中输入<code>hexo new 文章名字</code></p>
+<p>在博客文件夹中进入source目录，即可看到新建的.md文件</p>
+<p>可根据主题配置对文件进行编辑</p>
+<p>进行发布即可</p>
+<h2 id="技巧"><a class="markdownIt-Anchor" href="#技巧"></a> 技巧</h2>
+<ol>
+<li>
+<p>若要删除网站文章或更新配置等</p>
+<p>在本地删除文章即可</p>
+<p>若文章仍然没有被删除</p>
+<p>可使用<code>npx hexo clear</code>删除网站文件后重新生成上传</p>
+</li>
+</ol>
 
             </article>
             <hr>
