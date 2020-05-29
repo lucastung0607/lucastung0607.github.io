@@ -145,7 +145,7 @@
                   
                   <span class="post-meta mr-2">
                     <i class="iconfont icon-chart"></i>
-                    1.1k 字
+                    1.5k 字
                   </span>
                 
 
@@ -155,7 +155,7 @@
                       <i class="iconfont icon-clock-fill"></i>
                     
                     
-                    13
+                    19
                      分钟
                   </span>
                 
@@ -185,7 +185,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2020年5月29日 下午
+                  本文最后更新于：2020年5月29日 晚上
                 
               </p>
             
@@ -267,6 +267,72 @@
     VNode adjlist[maxSize];			<span class="hljs-comment">//邻接表</span>
     <span class="hljs-keyword">int</span> n, e;						<span class="hljs-comment">//顶点数和边数</span>
 &#125; AGraph;							<span class="hljs-comment">//图的邻接表类型</span></code></pre>
+<h2 id="图的遍历算法操作"><a class="markdownIt-Anchor" href="#图的遍历算法操作"></a> 图的遍历算法操作</h2>
+<h3 id="深度优先搜索遍历"><a class="markdownIt-Anchor" href="#深度优先搜索遍历"></a> 深度优先搜索遍历</h3>
+<p>图的深度优先搜索遍历（DFS）类似于二叉树的先序遍历</p>
+<p>算法执行过程：任取一个顶点，访问之，然后检查这个顶点的所有邻接顶点，递归访问其中未被访问过的顶点</p>
+<p>算法：</p>
+<pre><code class="hljs c"><span class="hljs-keyword">int</span> visit[maxSize];					<span class="hljs-comment">//全局数组</span>
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">DFS</span><span class="hljs-params">(AGraph *G, <span class="hljs-keyword">int</span> v)</span></span>&#123;
+    ArcNode *p;
+    visit[v] = <span class="hljs-number">1</span>;					<span class="hljs-comment">//flag</span>
+    Visit(v);
+    p = G-&gt;adjlist[v].firstarc;		<span class="hljs-comment">//p指向顶点v的第一条边</span>
+    <span class="hljs-keyword">while</span>(p != <span class="hljs-literal">NULL</span>)&#123;				
+        <span class="hljs-keyword">if</span>(visit[p-&gt;adjvex] == <span class="hljs-number">0</span>)&#123;	<span class="hljs-comment">//若未被访问则递归访问</span>
+            DFS(G, p-&gt;adjvex);
+        &#125;
+        p = p-&gt;nextarc;				<span class="hljs-comment">//指向下一条边</span>
+    &#125;
+&#125;</code></pre>
+<h3 id="广度优先搜索遍历"><a class="markdownIt-Anchor" href="#广度优先搜索遍历"></a> 广度优先搜索遍历</h3>
+<p>图的广度优先搜索便利（BFS）类似于树的层次遍历</p>
+<p>算法执行过程：</p>
+<ol>
+<li>任取图中一个顶点访问，入队，将此顶点标记为已访问</li>
+<li>当队列非空时执行循环：出队，依次检查出队顶点的所有邻接顶点，访问没有被访问过的邻接顶点并将其入队</li>
+<li>当队列为空时跳出循环，广度优先搜索完成</li>
+</ol>
+<p>算法：</p>
+<pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">BFS</span><span class="hljs-params">(AGraph *G, <span class="hljs-keyword">int</span> v, <span class="hljs-keyword">int</span> visit[maxSize])</span></span>&#123;
+    ArcNode *p;
+    <span class="hljs-keyword">int</span> que[maxSize], front = <span class="hljs-number">0</span>, rear = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">int</span> j;
+    Visit(v);
+    visit[v] = <span class="hljs-number">1</span>;
+    rear = (rear + <span class="hljs-number">1</span>) % maxSize;
+    que[rear] = v;
+    <span class="hljs-keyword">while</span>(front != rear)&#123;
+        front = (front + <span class="hljs-number">1</span>) % maxSize;
+        j = que[front];
+        p = G-&gt;adjlist[j].firstarc;
+        <span class="hljs-keyword">while</span>(p != <span class="hljs-literal">NULL</span>)&#123;
+            <span class="hljs-keyword">if</span>(visit[p-&gt;adjvex] == <span class="hljs-number">0</span>)&#123;
+                Visit(p-&gt;adjvex);
+                visit[p-&gt;adjvex] = <span class="hljs-number">1</span>;
+                rear = (rear + <span class="hljs-number">1</span>) % maxSize;
+                que[rear] = p-&gt;adjvex;
+            &#125;
+            p = p-&gt;nextarc;
+        &#125;
+    &#125;
+&#125;</code></pre>
+<h3 id="非连通图遍历"><a class="markdownIt-Anchor" href="#非连通图遍历"></a> 非连通图遍历</h3>
+<h4 id="深度优先搜索遍历-2"><a class="markdownIt-Anchor" href="#深度优先搜索遍历-2"></a> 深度优先搜索遍历</h4>
+<pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">dfs</span><span class="hljs-params">(AGraph *g)</span></span>&#123;
+    <span class="hljs-keyword">int</span> i;
+    <span class="hljs-keyword">for</span>(i = <span class="hljs-number">0</span>; i &lt; g-&gt;n; ++i)
+        <span class="hljs-keyword">if</span>(visit[i] == <span class="hljs-number">0</span>)
+            DFS(g, i);
+&#125;</code></pre>
+<h4 id="广度优先搜索遍历-2"><a class="markdownIt-Anchor" href="#广度优先搜索遍历-2"></a> 广度优先搜索遍历</h4>
+<pre><code class="hljs c"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">bfs</span><span class="hljs-params">(AGraph *g)</span></span>&#123;
+    <span class="hljs-keyword">int</span> i;
+    <span class="hljs-keyword">for</span>(i = <span class="hljs-number">0</span>; i &lt; g-&gt;n; ++i)
+        <span class="hljs-keyword">if</span>(visit[i] == <span class="hljs-number">0</span>)
+            BFS(g, i, visit);
+&#125;</code></pre>
 
             </article>
             <hr>
