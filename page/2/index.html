@@ -1,17 +1,19 @@
-
-
 <!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+<html lang="zh-CN">
+
+
 
 
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
   <link rel="icon" type="image/png" href="/img/favicon.png">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   
   <meta name="theme-color" content="#2f4154">
   <meta name="description" content="">
@@ -20,16 +22,21 @@
   <title>Lucas Tung</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
 
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_pf9vaxs7x7b.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_fmb4a04yx8h.css">
 
 
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
 
 
 <link  rel="stylesheet" href="/css/main.css" />
@@ -37,8 +44,6 @@
 <!-- 自定义样式保持在最底部 -->
 
 
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
 <meta name="generator" content="Hexo 4.2.1"></head>
 
 
@@ -47,7 +52,7 @@
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
-       href="/">&nbsp;<strong>Fluid</strong>&nbsp;</a>
+       href="/">&nbsp;<strong>Lucas</strong>&nbsp;</a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -62,73 +67,52 @@
           
           
           
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/">
-                <i class="iconfont icon-home-fill"></i>
-                首页
-              </a>
-            </li>
-          
+          <li class="nav-item">
+            <a class="nav-link" href="/">
+              <i class="iconfont icon-home-fill"></i>
+              首页</a>
+          </li>
         
           
           
           
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/archives/">
-                <i class="iconfont icon-archive-fill"></i>
-                归档
-              </a>
-            </li>
-          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">
+              <i class="iconfont icon-archive-fill"></i>
+              归档</a>
+          </li>
         
           
           
           
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/categories/">
-                <i class="iconfont icon-category-fill"></i>
-                分类
-              </a>
-            </li>
-          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">
+              <i class="iconfont icon-category-fill"></i>
+              分类</a>
+          </li>
         
           
           
           
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/">
-                <i class="iconfont icon-tags-fill"></i>
-                标签
-              </a>
-            </li>
-          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">
+              <i class="iconfont icon-tags-fill"></i>
+              标签</a>
+          </li>
         
           
           
           
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/about/">
-                <i class="iconfont icon-user-fill"></i>
-                关于
-              </a>
-            </li>
-          
-        
-        
-          <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;</a>
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">
+              <i class="iconfont icon-user-fill"></i>
+              关于</a>
           </li>
         
         
-          <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" href="javascript:">&nbsp;<i
-                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
           </li>
         
       </ul>
@@ -136,12 +120,12 @@
   </div>
 </nav>
 
-    <div class="banner intro-2" id="background" parallax=true
+    <div class="view intro-2" id="background" parallax=true
          style="background: url('/img/default.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="container page-header text-center fade-in-up">
+          <div class="container text-center white-text fadeInUp">
             <span class="h2" id="subtitle">
               
             </span>
@@ -174,37 +158,19 @@
   <div class="row mx-auto index-card">
     
     
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        <a href="/2020/03/18/%E7%8C%B4%E5%AD%90%E9%80%89%E5%A4%A7%E7%8E%8B/">猴子选大王</a>
-      </h1>
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a class="index-header" href="/2020/03/18/%E7%8C%B4%E5%AD%90%E9%80%89%E5%A4%A7%E7%8E%8B/">猴子选大王</a>
 
-      <p class="index-excerpt">
-        <a href="/2020/03/18/%E7%8C%B4%E5%AD%90%E9%80%89%E5%A4%A7%E7%8E%8B/">
-          
-          
-            
-          
-           猴子选大王
- 问题描述
-要从n只猴子中选出一位大王。它们决定使用下面的方法：
-n只猴子围成一圈，从1到n顺序编号。从第q只猴子开始，从1到m报数，凡报到m的猴子退出竞选，下一次又从退出的那只猴子的下一只开始从1到m报数，直至剩下的最后一只为大王。请问最后哪只猴子被选为大王。
- 输入形式
-控制台输入三个整数n，m，q，各整数间以一个空格分隔。
- 输出形式
-输出最后选为大王的猴子编号。
- 样例输入
-
-        </a>
-      </p>
+      <a href="/2020/03/18/%E7%8C%B4%E5%AD%90%E9%80%89%E5%A4%A7%E7%8E%8B/" class="index-excerpt">
+        
+        
+        <div></div>
+      </a>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-03-18 21:09" pubdate>
-              2020-03-18
-            </time>
+            <i class="iconfont icon-date"></i>&nbsp;2020-03-18
           </div>
         
         
@@ -230,36 +196,25 @@ n只猴子围成一圈，从1到n顺序编号。从第q只猴子开始，从1到
           </div>
         
       </div>
-    </article>
+    </div>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        <a href="/2020/03/17/%E8%BF%9E%E7%BB%AD%E7%BA%BF%E6%AE%B5/">连续线段</a>
-      </h1>
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a class="index-header" href="/2020/03/17/%E8%BF%9E%E7%BB%AD%E7%BA%BF%E6%AE%B5/">连续线段</a>
 
-      <p class="index-excerpt">
-        <a href="/2020/03/17/%E8%BF%9E%E7%BB%AD%E7%BA%BF%E6%AE%B5/">
-          
-          
-            
-          
-           连续线段
- 问题描述
-平面上两个点（一个点由(x,y)坐标组成）可构成一个线段，两个线段如果有一个端点相同，则可构成一个连续线段。假设构成线段的两个端点为v1(x1,y1)和v2(x2,y2)，在此满足x1&lt;x2，其中v1称为线段的起点，v2为线段的终点。同样，对于连续线段来说，在此满足xi&lt;xi+1（i=1…n-1，n为连续线段中的端点数，xi为相应端点的X轴坐标）。输入一组线段（
-        </a>
-      </p>
+      <a href="/2020/03/17/%E8%BF%9E%E7%BB%AD%E7%BA%BF%E6%AE%B5/" class="index-excerpt">
+        
+        
+        <div></div>
+      </a>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-03-17 20:34" pubdate>
-              2020-03-17
-            </time>
+            <i class="iconfont icon-date"></i>&nbsp;2020-03-17
           </div>
         
         
@@ -287,36 +242,25 @@ n只猴子围成一圈，从1到n顺序编号。从第q只猴子开始，从1到
           </div>
         
       </div>
-    </article>
+    </div>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        <a href="/2020/03/14/%E5%B0%8F%E5%9E%8B%E5%9B%BE%E4%B9%A6%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/">小型图书管理系统</a>
-      </h1>
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a class="index-header" href="/2020/03/14/%E5%B0%8F%E5%9E%8B%E5%9B%BE%E4%B9%A6%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/">小型图书管理系统</a>
 
-      <p class="index-excerpt">
-        <a href="/2020/03/14/%E5%B0%8F%E5%9E%8B%E5%9B%BE%E4%B9%A6%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/">
-          
-          
-            
-          
-          ##小型图书管理系统
- 问题描述
-小明同学特别喜欢买书看书。由于书较多，摆放杂乱，找起来非常麻烦。这学期小明同学上了数据结构与程序设计课后，决定改变这种状况：用C开发一个小型图书管理系统。系统中包含的图书信息有：书名、作者、出版社、出版日期等。首先，图书管理系统对已有的书（原始书库，存放在一个文本文件中）按书名字典序进行（排序）摆放（即将原始无序的图书信息文件生成一个有序的文件，即新书库），以便查
-        </a>
-      </p>
+      <a href="/2020/03/14/%E5%B0%8F%E5%9E%8B%E5%9B%BE%E4%B9%A6%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/" class="index-excerpt">
+        
+        
+        <div></div>
+      </a>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-03-14 18:25" pubdate>
-              2020-03-14
-            </time>
+            <i class="iconfont icon-date"></i>&nbsp;2020-03-14
           </div>
         
         
@@ -344,36 +288,25 @@ n只猴子围成一圈，从1到n顺序编号。从第q只猴子开始，从1到
           </div>
         
       </div>
-    </article>
+    </div>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        <a href="/2020/03/14/%E9%80%9A%E8%AE%AF%E5%BD%95%E6%95%B4%E7%90%86/">通讯录整理</a>
-      </h1>
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a class="index-header" href="/2020/03/14/%E9%80%9A%E8%AE%AF%E5%BD%95%E6%95%B4%E7%90%86/">通讯录整理</a>
 
-      <p class="index-excerpt">
-        <a href="/2020/03/14/%E9%80%9A%E8%AE%AF%E5%BD%95%E6%95%B4%E7%90%86/">
-          
-          
-            
-          
-           通讯录整理
- 问题描述
-读取一组电话号码簿（由姓名和手机号码组成），将重复出现的项删除（姓名和电话号码都相同的项为重复项，只保留第一次出现的项），并对姓名相同手机号码不同的项进行如下整理：首次出现的项不作处理，第一次重复的姓名后面加英文下划线字符_和数字1，第二次重复的姓名后面加英文下划线字符_和数字2，依次类推。号码簿中姓名相同的项数最多不超过10个。最后对整理后的电话号码簿按照姓名进行从小到
-        </a>
-      </p>
+      <a href="/2020/03/14/%E9%80%9A%E8%AE%AF%E5%BD%95%E6%95%B4%E7%90%86/" class="index-excerpt">
+        
+        
+        <div></div>
+      </a>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-03-14 18:19" pubdate>
-              2020-03-14
-            </time>
+            <i class="iconfont icon-date"></i>&nbsp;2020-03-14
           </div>
         
         
@@ -401,86 +334,25 @@ n只猴子围成一圈，从1到n顺序编号。从第q只猴子开始，从1到
           </div>
         
       </div>
-    </article>
+    </div>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        <a href="/2020/03/13/%E5%8A%A0%E5%AF%86%E6%96%87%E4%BB%B6/">加密文件</a>
-      </h1>
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a class="index-header" href="/2020/03/13/%E5%8A%A0%E5%AF%86%E6%96%87%E4%BB%B6/">加密文件</a>
 
-      <p class="index-excerpt">
-        <a href="/2020/03/13/%E5%8A%A0%E5%AF%86%E6%96%87%E4%BB%B6/">
-          
-          
-            
-          
-           加密文件
- 问题描述
-有一种加密方法为：其使用一个字母串（可以含重复字母，字母个数不超过50）作为密钥。假定密钥单词串为feather，则先去掉密钥单词中的重复字母得到单词串feathr，然后再将字母表中的其它字母以反序追加到feathr的后面：
-
-
-
-f
-e
-a
-t
-h
-r
-z
-y
-x
-w
-v
-u
-s
-q
-p
-o
-n
-m
-l
-k
-j
-i
-g
-d
-c
-b
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        </a>
-      </p>
+      <a href="/2020/03/13/%E5%8A%A0%E5%AF%86%E6%96%87%E4%BB%B6/" class="index-excerpt">
+        
+        
+        <div></div>
+      </a>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-03-13 18:16" pubdate>
-              2020-03-13
-            </time>
+            <i class="iconfont icon-date"></i>&nbsp;2020-03-13
           </div>
         
         
@@ -497,46 +369,25 @@ b
         
         
       </div>
-    </article>
+    </div>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        <a href="/2020/03/13/%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%9B%BF%E6%8D%A2/">字符串替换</a>
-      </h1>
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a class="index-header" href="/2020/03/13/%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%9B%BF%E6%8D%A2/">字符串替换</a>
 
-      <p class="index-excerpt">
-        <a href="/2020/03/13/%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%9B%BF%E6%8D%A2/">
-          
-          
-            
-          
-           字符串替换（新）
- 问题描述
-编写程序将一个指定文件中某一字符串替换为另一个字符串。要求：
-
-被替换字符串若有多个，均要被替换；
-指定的被替换字 符串，大小写无关。
-
- 输入形式
-给定文件名为filein.txt。从控制台输入两行字符串（不含空格，行末尾都有回车换行符），分别表示被替换的字符串和替换字符串。
- 输出形式
-将替换后的结果输出到文件fileout.txt中。
- 样例输入
-从控制台输入
-        </a>
-      </p>
+      <a href="/2020/03/13/%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%9B%BF%E6%8D%A2/" class="index-excerpt">
+        
+        
+        <div></div>
+      </a>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-03-13 17:48" pubdate>
-              2020-03-13
-            </time>
+            <i class="iconfont icon-date"></i>&nbsp;2020-03-13
           </div>
         
         
@@ -553,37 +404,25 @@ b
         
         
       </div>
-    </article>
+    </div>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        <a href="/2020/03/12/%E4%BA%94%E5%AD%90%E6%A3%8B%E5%8D%B1%E9%99%A9%E5%88%A4%E6%96%AD/">五子棋危险判断</a>
-      </h1>
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a class="index-header" href="/2020/03/12/%E4%BA%94%E5%AD%90%E6%A3%8B%E5%8D%B1%E9%99%A9%E5%88%A4%E6%96%AD/">五子棋危险判断</a>
 
-      <p class="index-excerpt">
-        <a href="/2020/03/12/%E4%BA%94%E5%AD%90%E6%A3%8B%E5%8D%B1%E9%99%A9%E5%88%A4%E6%96%AD/">
-          
-          
-            
-          
-           五子棋危险判断
- 问题描述
-已知两人分别执白棋和黑棋在一个围棋棋盘上下五子棋，若同一颜色的棋子在同一条横行、纵行或斜线上连成5个棋子，则执该颜色棋子的人获胜。编写程序读入某一时刻下棋的状态，并判断是否有人即将获胜，即：同一颜色的棋子在同一条横行、纵列或斜线上连成4个棋子，且该4个棋子的两端至少有一端为空位置。
-输入的棋盘大小是19×19，用数字0表示空位置（即没有棋子），用数字1表示该位置下了一
-        </a>
-      </p>
+      <a href="/2020/03/12/%E4%BA%94%E5%AD%90%E6%A3%8B%E5%8D%B1%E9%99%A9%E5%88%A4%E6%96%AD/" class="index-excerpt">
+        
+        
+        <div></div>
+      </a>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-03-12 17:45" pubdate>
-              2020-03-12
-            </time>
+            <i class="iconfont icon-date"></i>&nbsp;2020-03-12
           </div>
         
         
@@ -600,41 +439,25 @@ b
         
         
       </div>
-    </article>
+    </div>
   </div>
 
   <div class="row mx-auto index-card">
     
     
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        <a href="/2020/03/12/%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%AE%A1%E7%AE%97/">表达式计算</a>
-      </h1>
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a class="index-header" href="/2020/03/12/%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%AE%A1%E7%AE%97/">表达式计算</a>
 
-      <p class="index-excerpt">
-        <a href="/2020/03/12/%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%AE%A1%E7%AE%97/">
-          
-          
-            
-          
-           表达式计算（支持空格，连乘，连除）
- 问题描述
-从标准输入中读入一个整数算术运算表达式，如5 - 1 * 2 * 3 + 12 / 2 / 2  = 。计算表达式结果，并输出。
-要求：
-
-表达式运算符只有+、-、*、/，表达式末尾的’=’字符表示表达式输入结束，表达式中可能会出现空格；
-表达式中不含圆括号，不会出现错误的表达式；
-出现除号/时，以整数相除进行运算，结果仍为整数，例如：5/3结果应
-        </a>
-      </p>
+      <a href="/2020/03/12/%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%AE%A1%E7%AE%97/" class="index-excerpt">
+        
+        
+        <div></div>
+      </a>
 
       <div class="index-btm post-metas">
         
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-03-12 17:36" pubdate>
-              2020-03-12
-            </time>
+            <i class="iconfont icon-date"></i>&nbsp;2020-03-12
           </div>
         
         
@@ -658,7 +481,7 @@ b
           </div>
         
       </div>
-    </article>
+    </div>
   </div>
 
 
@@ -716,7 +539,36 @@ b
   
 
   
+    <!-- APlayer 音乐播放器 -->
+    <div id="aplayer"></div>
+    <script defer src="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.js" ></script>
+<link  rel="stylesheet" href="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.css" />
+<script type="text/javascript">
+  var oldLoadAp = window.onload;
+  window.onload = function () {
+    oldLoadAp && oldLoadAp();
 
+    new APlayer({
+      container: document.getElementById('aplayer'),
+      fixed: true,
+      autoplay: 'false' === 'true',
+      loop: 'all',
+      order: 'random',
+      theme: '#b7daff',
+      preload: 'none',
+      audio: [{"name":"城南花已开-吉他版","artist":"三亩地","url":"/songs/三亩地 - 城南花开-吉他版.flac","cover":"/img/cover_chengnan.jpg"},{"name":"One more time, One more chance Piano ver","artist":"天門","url":"Piano ver.flac","cover":"cover_onemoretime.jpg"},{"name":"青石巷","artist":"魏琮霏","url":"/songs/魏琮霏 - 青石巷.mp3","cover":"/img/Other_Wei.jpg"},{"name":"积木森林","artist":"魏琮霏","url":"/songs/魏琮霏 - 积木森林.mp3","cover":"/img/Other_Wei.jpg"},{"name":"岸","artist":"魏琮霏","url":"/songs/魏琮霏 - 岸.mp3","cover":"/img/Other_Wei.jpg"},{"name":"Secret Base","artist":"uBio","url":"/songs/uBio - Secret Base - 吉他版.mp3","cover":"/img/cover_secret.jpg"},{"name":"渚","artist":"麻枝准","url":"/songs/麻枝准 - 渚.flac","cover":"/img/cover_chu.jpg"}]
+    });
+  }
+</script>
+
+  
+
+  
+    <div class="col-lg-7 mx-auto nopadding-md">
+      <div class="container custom mx-auto">
+        © 2020 Lucas Tung. All Rights Reserved.
+      </div>
+    </div>
   
 
   <footer class="mt-5">
@@ -738,19 +590,12 @@ b
 <!-- SCRIPTS -->
 <script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
 <script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
-<script  src="/js/debouncer.js" ></script>
 <script  src="/js/main.js" ></script>
 
-<!-- Plugins -->
+
+  <script  src="/js/lazyload.js" ></script>
 
 
-  
-    <script  src="/js/lazyload.js" ></script>
-  
-
-
-
-  
 
 
 
@@ -762,6 +607,31 @@ b
 
 
 
+<!-- Plugins -->
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?1207892f7315a6f38ad6339dc298aa10# 百度统计的Key，参见 https://tongji.baidu.com/sc-web/10000033910/home/site/getjs?siteId=13751376 代码获取中 hm.js? 后边的字符串";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
 
 
 
@@ -770,7 +640,7 @@ b
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "An elegant Material-Design theme for Hexo&nbsp;",
+        "Think like a proton and stay positive.&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
@@ -785,6 +655,21 @@ b
 
 
 
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
 
 
   <script  src="/js/local-search.js" ></script>
@@ -796,8 +681,6 @@ b
       this.onclick = null
     }
   </script>
-
-
 
 
 

@@ -1,17 +1,19 @@
-
-
 <!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+<html lang="zh-CN">
+
+
 
 
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
   <link rel="icon" type="image/png" href="/img/favicon.png">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   
   <meta name="theme-color" content="#2f4154">
   <meta name="description" content="">
@@ -20,16 +22,21 @@
   <title>分类 - Lucas Tung</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
 
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_pf9vaxs7x7b.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_fmb4a04yx8h.css">
 
 
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+
 
 
 <link  rel="stylesheet" href="/css/main.css" />
@@ -37,8 +44,6 @@
 <!-- 自定义样式保持在最底部 -->
 
 
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
 <meta name="generator" content="Hexo 4.2.1"></head>
 
 
@@ -47,7 +52,7 @@
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
-       href="/">&nbsp;<strong>Fluid</strong>&nbsp;</a>
+       href="/">&nbsp;<strong>Lucas</strong>&nbsp;</a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -62,73 +67,52 @@
           
           
           
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/">
-                <i class="iconfont icon-home-fill"></i>
-                首页
-              </a>
-            </li>
-          
+          <li class="nav-item">
+            <a class="nav-link" href="/">
+              <i class="iconfont icon-home-fill"></i>
+              首页</a>
+          </li>
         
           
           
           
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/archives/">
-                <i class="iconfont icon-archive-fill"></i>
-                归档
-              </a>
-            </li>
-          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">
+              <i class="iconfont icon-archive-fill"></i>
+              归档</a>
+          </li>
         
           
           
           
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/categories/">
-                <i class="iconfont icon-category-fill"></i>
-                分类
-              </a>
-            </li>
-          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">
+              <i class="iconfont icon-category-fill"></i>
+              分类</a>
+          </li>
         
           
           
           
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/">
-                <i class="iconfont icon-tags-fill"></i>
-                标签
-              </a>
-            </li>
-          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">
+              <i class="iconfont icon-tags-fill"></i>
+              标签</a>
+          </li>
         
           
           
           
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/about/">
-                <i class="iconfont icon-user-fill"></i>
-                关于
-              </a>
-            </li>
-          
-        
-        
-          <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;</a>
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">
+              <i class="iconfont icon-user-fill"></i>
+              关于</a>
           </li>
         
         
-          <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" href="javascript:">&nbsp;<i
-                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
           </li>
         
       </ul>
@@ -136,12 +120,12 @@
   </div>
 </nav>
 
-    <div class="banner intro-2" id="background" parallax=true
+    <div class="view intro-2" id="background" parallax=true
          style="background: url('/img/default.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="container page-header text-center fade-in-up">
+          <div class="container text-center white-text fadeInUp">
             <span class="h2" id="subtitle">
               
             </span>
@@ -166,492 +150,7 @@
               <div class="col-12 col-md-10 m-auto">
                 
 
-
-
-
-
-
-
-<div class="category-list">
-  
-  
-  
-  
-    
-    
-    <div class="category row">
-      <a
-        class="category-item collapsed list-group-item category-item-action col-10 col-md-11"
-        id="heading-ckajic0uu0003kktl2bbkg8bc" role="tab" data-toggle="collapse" href="#collapse-ckajic0uu0003kktl2bbkg8bc"
-        aria-expanded="false"
-      >
-        数据结构
-        <i class="iconfont icon-arrowright"></i>
-      </a>
-      <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="category-count col-2 col-md-1">
-        <i class="iconfont icon-articles"></i>
-        <span>14</span>
-      </a>
-      <div class="category-collapse">
-        
-          
-  <div id="collapse-ckajic0uu0003kktl2bbkg8bc" class="collapse in " role="tabpanel"
-       aria-labelledby="heading-ckajic0uu0003kktl2bbkg8bc">
-    
-  
-  
-    
-    
-    <div class="category-sub row">
-      <a
-        class="category-subitem collapsed list-group-item category-item-action col-10 col-md-11"
-        id="heading-ckajic0v6000gkktlf47k1hdq" role="tab" data-toggle="collapse" href="#collapse-ckajic0v6000gkktlf47k1hdq"
-        aria-expanded="false"
-      >
-        作业
-        <i class="iconfont icon-arrowright"></i>
-      </a>
-      <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E4%BD%9C%E4%B8%9A/" class="category-count col-2 col-md-1">
-        <i class="iconfont icon-articles"></i>
-        <span>12</span>
-      </a>
-      <div class="category-collapse">
-        
-          
-  <div id="collapse-ckajic0v6000gkktlf47k1hdq" class="collapse in " role="tabpanel"
-       aria-labelledby="heading-ckajic0v6000gkktlf47k1hdq">
-    
-  
-  
-    
-    
-    <div class="category-sub row">
-      <a
-        class="category-subitem collapsed list-group-item category-item-action col-10 col-md-11"
-        id="heading-ckajic0vi0018kktl5xkc3pwt" role="tab" data-toggle="collapse" href="#collapse-ckajic0vi0018kktl5xkc3pwt"
-        aria-expanded="false"
-      >
-        第三次作业
-        <i class="iconfont icon-arrowright"></i>
-      </a>
-      <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E4%BD%9C%E4%B8%9A/%E7%AC%AC%E4%B8%89%E6%AC%A1%E4%BD%9C%E4%B8%9A/" class="category-count col-2 col-md-1">
-        <i class="iconfont icon-articles"></i>
-        <span>5</span>
-      </a>
-      <div class="category-collapse">
-        
-          
-  <div id="collapse-ckajic0vi0018kktl5xkc3pwt" class="collapse in" role="tabpanel"
-       aria-labelledby="heading-ckajic0vi0018kktl5xkc3pwt">
-    
-    
-    
-      
-      
-        <a href="/2020/04/05/%E8%AF%8D%E9%A2%91%E7%BB%9F%E8%AE%A1/" class="list-group-item list-group-item-action">
-          <span class="category-post">词频统计</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/04/03/%E6%96%87%E4%BB%B6%E5%8A%A0%E5%AF%86/" class="list-group-item list-group-item-action">
-          <span class="category-post">文件加密</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/03/31/%E5%A4%9A%E9%A1%B9%E5%BC%8F%E7%9B%B8%E4%B9%98/" class="list-group-item list-group-item-action">
-          <span class="category-post">多项式相乘</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/03/18/%E7%8C%B4%E5%AD%90%E9%80%89%E5%A4%A7%E7%8E%8B/" class="list-group-item list-group-item-action">
-          <span class="category-post">猴子选大王</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/03/17/%E8%BF%9E%E7%BB%AD%E7%BA%BF%E6%AE%B5/" class="list-group-item list-group-item-action">
-          <span class="category-post">连续线段</span>
-        </a>
-      
-    
-  </div>
-
-        
-      </div>
-    </div>
-  
-    
-    
-    <div class="category-sub row">
-      <a
-        class="category-subitem collapsed list-group-item category-item-action col-10 col-md-11"
-        id="heading-ckajic0vk001gkktldfcc5muc" role="tab" data-toggle="collapse" href="#collapse-ckajic0vk001gkktldfcc5muc"
-        aria-expanded="false"
-      >
-        第二次作业
-        <i class="iconfont icon-arrowright"></i>
-      </a>
-      <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E4%BD%9C%E4%B8%9A/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E4%BD%9C%E4%B8%9A/" class="category-count col-2 col-md-1">
-        <i class="iconfont icon-articles"></i>
-        <span>5</span>
-      </a>
-      <div class="category-collapse">
-        
-          
-  <div id="collapse-ckajic0vk001gkktldfcc5muc" class="collapse in" role="tabpanel"
-       aria-labelledby="heading-ckajic0vk001gkktldfcc5muc">
-    
-    
-    
-      
-      
-        <a href="/2020/03/14/%E5%B0%8F%E5%9E%8B%E5%9B%BE%E4%B9%A6%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/" class="list-group-item list-group-item-action">
-          <span class="category-post">小型图书管理系统</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/03/14/%E9%80%9A%E8%AE%AF%E5%BD%95%E6%95%B4%E7%90%86/" class="list-group-item list-group-item-action">
-          <span class="category-post">通讯录整理</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/03/13/%E5%8A%A0%E5%AF%86%E6%96%87%E4%BB%B6/" class="list-group-item list-group-item-action">
-          <span class="category-post">加密文件</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/03/13/%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%9B%BF%E6%8D%A2/" class="list-group-item list-group-item-action">
-          <span class="category-post">字符串替换</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/03/12/%E4%BA%94%E5%AD%90%E6%A3%8B%E5%8D%B1%E9%99%A9%E5%88%A4%E6%96%AD/" class="list-group-item list-group-item-action">
-          <span class="category-post">五子棋危险判断</span>
-        </a>
-      
-    
-  </div>
-
-        
-      </div>
-    </div>
-  
-    
-    
-    <div class="category-sub row">
-      <a
-        class="category-subitem collapsed list-group-item category-item-action col-10 col-md-11"
-        id="heading-ckajic0vn0020kktl7596crz0" role="tab" data-toggle="collapse" href="#collapse-ckajic0vn0020kktl7596crz0"
-        aria-expanded="false"
-      >
-        第一次作业
-        <i class="iconfont icon-arrowright"></i>
-      </a>
-      <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E4%BD%9C%E4%B8%9A/%E7%AC%AC%E4%B8%80%E6%AC%A1%E4%BD%9C%E4%B8%9A/" class="category-count col-2 col-md-1">
-        <i class="iconfont icon-articles"></i>
-        <span>1</span>
-      </a>
-      <div class="category-collapse">
-        
-          
-  <div id="collapse-ckajic0vn0020kktl7596crz0" class="collapse in" role="tabpanel"
-       aria-labelledby="heading-ckajic0vn0020kktl7596crz0">
-    
-    
-    
-      
-      
-        <a href="/2020/03/12/%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%AE%A1%E7%AE%97/" class="list-group-item list-group-item-action">
-          <span class="category-post">表达式计算</span>
-        </a>
-      
-    
-  </div>
-
-        
-      </div>
-    </div>
-  
-    
-    
-    <div class="category-sub row">
-      <a
-        class="category-subitem collapsed list-group-item category-item-action col-10 col-md-11"
-        id="heading-ckas4r1tq0002g4tlgk0aen6p" role="tab" data-toggle="collapse" href="#collapse-ckas4r1tq0002g4tlgk0aen6p"
-        aria-expanded="false"
-      >
-        第七次作业
-        <i class="iconfont icon-arrowright"></i>
-      </a>
-      <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E4%BD%9C%E4%B8%9A/%E7%AC%AC%E4%B8%83%E6%AC%A1%E4%BD%9C%E4%B8%9A/" class="category-count col-2 col-md-1">
-        <i class="iconfont icon-articles"></i>
-        <span>1</span>
-      </a>
-      <div class="category-collapse">
-        
-          
-  <div id="collapse-ckas4r1tq0002g4tlgk0aen6p" class="collapse in" role="tabpanel"
-       aria-labelledby="heading-ckas4r1tq0002g4tlgk0aen6p">
-    
-    
-    
-      
-      
-        <a href="/2020/05/29/%E5%9B%BE%E9%81%8D%E5%8E%86/" class="list-group-item list-group-item-action">
-          <span class="category-post">图遍历</span>
-        </a>
-      
-    
-  </div>
-
-        
-      </div>
-    </div>
-  
-  </div>
-
-        
-      </div>
-    </div>
-  
-    
-    
-    <div class="category-sub row">
-      <a
-        class="category-subitem collapsed list-group-item category-item-action col-10 col-md-11"
-        id="heading-ckarvlkpr0002uwtlevukg17m" role="tab" data-toggle="collapse" href="#collapse-ckarvlkpr0002uwtlevukg17m"
-        aria-expanded="false"
-      >
-        笔记
-        <i class="iconfont icon-arrowright"></i>
-      </a>
-      <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%94%E8%AE%B0/" class="category-count col-2 col-md-1">
-        <i class="iconfont icon-articles"></i>
-        <span>2</span>
-      </a>
-      <div class="category-collapse">
-        
-          
-  <div id="collapse-ckarvlkpr0002uwtlevukg17m" class="collapse in" role="tabpanel"
-       aria-labelledby="heading-ckarvlkpr0002uwtlevukg17m">
-    
-    
-    
-      
-      
-        <a href="/2020/06/09/%E6%9F%A5%E6%89%BE/" class="list-group-item list-group-item-action">
-          <span class="category-post">查找</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/05/29/%E5%9B%BE/" class="list-group-item list-group-item-action">
-          <span class="category-post">图</span>
-        </a>
-      
-    
-  </div>
-
-        
-      </div>
-    </div>
-  
-  </div>
-
-        
-      </div>
-    </div>
-  
-    
-    
-    <div class="category row">
-      <a
-        class="category-item collapsed list-group-item category-item-action col-10 col-md-11"
-        id="heading-ckamq6ag40001astl2cb6ejh8" role="tab" data-toggle="collapse" href="#collapse-ckamq6ag40001astl2cb6ejh8"
-        aria-expanded="false"
-      >
-        hexo
-        <i class="iconfont icon-arrowright"></i>
-      </a>
-      <a href="/categories/hexo/" class="category-count col-2 col-md-1">
-        <i class="iconfont icon-articles"></i>
-        <span>1</span>
-      </a>
-      <div class="category-collapse">
-        
-          
-  <div id="collapse-ckamq6ag40001astl2cb6ejh8" class="collapse in" role="tabpanel"
-       aria-labelledby="heading-ckamq6ag40001astl2cb6ejh8">
-    
-    
-    
-      
-      
-        <a href="/2020/05/26/hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E2%80%94%E2%80%94%E5%9F%BA%E4%BA%8EGitHub-Pages/" class="list-group-item list-group-item-action">
-          <span class="category-post">Hexo博客搭建——基于GitHub Pages</span>
-        </a>
-      
-    
-  </div>
-
-        
-      </div>
-    </div>
-  
-    
-    
-    <div class="category row">
-      <a
-        class="category-item collapsed list-group-item category-item-action col-10 col-md-11"
-        id="heading-ckdftpovw0001ustl4n5henlc" role="tab" data-toggle="collapse" href="#collapse-ckdftpovw0001ustl4n5henlc"
-        aria-expanded="false"
-      >
-        电路
-        <i class="iconfont icon-arrowright"></i>
-      </a>
-      <a href="/categories/%E7%94%B5%E8%B7%AF/" class="category-count col-2 col-md-1">
-        <i class="iconfont icon-articles"></i>
-        <span>1</span>
-      </a>
-      <div class="category-collapse">
-        
-          
-  <div id="collapse-ckdftpovw0001ustl4n5henlc" class="collapse in " role="tabpanel"
-       aria-labelledby="heading-ckdftpovw0001ustl4n5henlc">
-    
-  
-  
-    
-    
-    <div class="category-sub row">
-      <a
-        class="category-subitem collapsed list-group-item category-item-action col-10 col-md-11"
-        id="heading-ckdftpow40004ustl1mps5iws" role="tab" data-toggle="collapse" href="#collapse-ckdftpow40004ustl1mps5iws"
-        aria-expanded="false"
-      >
-        第一章
-        <i class="iconfont icon-arrowright"></i>
-      </a>
-      <a href="/categories/%E7%94%B5%E8%B7%AF/%E7%AC%AC%E4%B8%80%E7%AB%A0/" class="category-count col-2 col-md-1">
-        <i class="iconfont icon-articles"></i>
-        <span>1</span>
-      </a>
-      <div class="category-collapse">
-        
-          
-  <div id="collapse-ckdftpow40004ustl1mps5iws" class="collapse in" role="tabpanel"
-       aria-labelledby="heading-ckdftpow40004ustl1mps5iws">
-    
-    
-    
-      
-      
-        <a href="/2020/08/04/%E7%94%B5%E8%B7%AF%E7%AC%AC%E4%B8%80%E7%AB%A0/" class="list-group-item list-group-item-action">
-          <span class="category-post">电路第一章</span>
-        </a>
-      
-    
-  </div>
-
-        
-      </div>
-    </div>
-  
-  </div>
-
-        
-      </div>
-    </div>
-  
-    
-    
-    <div class="category row">
-      <a
-        class="category-item collapsed list-group-item category-item-action col-10 col-md-11"
-        id="heading-ckese0cgl00019wtl6wobgthc" role="tab" data-toggle="collapse" href="#collapse-ckese0cgl00019wtl6wobgthc"
-        aria-expanded="false"
-      >
-        大学物理
-        <i class="iconfont icon-arrowright"></i>
-      </a>
-      <a href="/categories/%E5%A4%A7%E5%AD%A6%E7%89%A9%E7%90%86/" class="category-count col-2 col-md-1">
-        <i class="iconfont icon-articles"></i>
-        <span>1</span>
-      </a>
-      <div class="category-collapse">
-        
-          
-  <div id="collapse-ckese0cgl00019wtl6wobgthc" class="collapse in" role="tabpanel"
-       aria-labelledby="heading-ckese0cgl00019wtl6wobgthc">
-    
-    
-    
-      
-      
-        <a href="/2020/09/07/%E7%AC%AC%E4%BA%94%E7%AB%A0%20%E6%B0%94%E4%BD%93%E5%8A%A8%E7%90%86%E8%AE%BA/" class="list-group-item list-group-item-action">
-          <span class="category-post">第五章 气体动理论</span>
-        </a>
-      
-    
-  </div>
-
-        
-      </div>
-    </div>
-  
-    
-    
-    <div class="category row">
-      <a
-        class="category-item collapsed list-group-item category-item-action col-10 col-md-11"
-        id="heading-ckexlm13r0001aktle4820fjs" role="tab" data-toggle="collapse" href="#collapse-ckexlm13r0001aktle4820fjs"
-        aria-expanded="false"
-      >
-        理论力学
-        <i class="iconfont icon-arrowright"></i>
-      </a>
-      <a href="/categories/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6/" class="category-count col-2 col-md-1">
-        <i class="iconfont icon-articles"></i>
-        <span>1</span>
-      </a>
-      <div class="category-collapse">
-        
-          
-  <div id="collapse-ckexlm13r0001aktle4820fjs" class="collapse in" role="tabpanel"
-       aria-labelledby="heading-ckexlm13r0001aktle4820fjs">
-    
-    
-    
-      
-      
-        <a href="/2020/09/11/%E8%B4%A8%E7%82%B9%E7%9A%84%E5%B9%B3%E8%A1%A1/" class="list-group-item list-group-item-action">
-          <span class="category-post">质点的平衡</span>
-        </a>
-      
-    
-  </div>
-
-        
-      </div>
-    </div>
-  
-</div>
+<ul class="category-tree-list"><li class="category-tree-list-item"><a class="category-tree-list-link" href="/categories/hexo/">hexo</a><span class="category-tree-list-count">1</span></li><li class="category-tree-list-item"><a class="category-tree-list-link" href="/categories/%E5%A4%A7%E5%AD%A6%E7%89%A9%E7%90%86/">大学物理</a><span class="category-tree-list-count">1</span></li><li class="category-tree-list-item"><a class="category-tree-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a><span class="category-tree-list-count">14</span><ul class="category-tree-list-child"><li class="category-tree-list-item"><a class="category-tree-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E4%BD%9C%E4%B8%9A/">作业</a><span class="category-tree-list-count">12</span><ul class="category-tree-list-child"><li class="category-tree-list-item"><a class="category-tree-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E4%BD%9C%E4%B8%9A/%E7%AC%AC%E4%B8%80%E6%AC%A1%E4%BD%9C%E4%B8%9A/">第一次作业</a><span class="category-tree-list-count">1</span></li><li class="category-tree-list-item"><a class="category-tree-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E4%BD%9C%E4%B8%9A/%E7%AC%AC%E4%B8%83%E6%AC%A1%E4%BD%9C%E4%B8%9A/">第七次作业</a><span class="category-tree-list-count">1</span></li><li class="category-tree-list-item"><a class="category-tree-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E4%BD%9C%E4%B8%9A/%E7%AC%AC%E4%B8%89%E6%AC%A1%E4%BD%9C%E4%B8%9A/">第三次作业</a><span class="category-tree-list-count">5</span></li><li class="category-tree-list-item"><a class="category-tree-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E4%BD%9C%E4%B8%9A/%E7%AC%AC%E4%BA%8C%E6%AC%A1%E4%BD%9C%E4%B8%9A/">第二次作业</a><span class="category-tree-list-count">5</span></li></ul></li><li class="category-tree-list-item"><a class="category-tree-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AC%94%E8%AE%B0/">笔记</a><span class="category-tree-list-count">2</span></li></ul></li><li class="category-tree-list-item"><a class="category-tree-list-link" href="/categories/%E7%90%86%E8%AE%BA%E5%8A%9B%E5%AD%A6/">理论力学</a><span class="category-tree-list-count">1</span></li><li class="category-tree-list-item"><a class="category-tree-list-link" href="/categories/%E7%94%B5%E8%B7%AF/">电路</a><span class="category-tree-list-count">1</span><ul class="category-tree-list-child"><li class="category-tree-list-item"><a class="category-tree-list-link" href="/categories/%E7%94%B5%E8%B7%AF/%E7%AC%AC%E4%B8%80%E7%AB%A0/">第一章</a><span class="category-tree-list-count">1</span></li></ul></li></ul>
 
               </div>
             </div>
@@ -692,7 +191,36 @@
   
 
   
+    <!-- APlayer 音乐播放器 -->
+    <div id="aplayer"></div>
+    <script defer src="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.js" ></script>
+<link  rel="stylesheet" href="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.css" />
+<script type="text/javascript">
+  var oldLoadAp = window.onload;
+  window.onload = function () {
+    oldLoadAp && oldLoadAp();
 
+    new APlayer({
+      container: document.getElementById('aplayer'),
+      fixed: true,
+      autoplay: 'false' === 'true',
+      loop: 'all',
+      order: 'random',
+      theme: '#b7daff',
+      preload: 'none',
+      audio: [{"name":"城南花已开-吉他版","artist":"三亩地","url":"/songs/三亩地 - 城南花开-吉他版.flac","cover":"/img/cover_chengnan.jpg"},{"name":"One more time, One more chance Piano ver","artist":"天門","url":"Piano ver.flac","cover":"cover_onemoretime.jpg"},{"name":"青石巷","artist":"魏琮霏","url":"/songs/魏琮霏 - 青石巷.mp3","cover":"/img/Other_Wei.jpg"},{"name":"积木森林","artist":"魏琮霏","url":"/songs/魏琮霏 - 积木森林.mp3","cover":"/img/Other_Wei.jpg"},{"name":"岸","artist":"魏琮霏","url":"/songs/魏琮霏 - 岸.mp3","cover":"/img/Other_Wei.jpg"},{"name":"Secret Base","artist":"uBio","url":"/songs/uBio - Secret Base - 吉他版.mp3","cover":"/img/cover_secret.jpg"},{"name":"渚","artist":"麻枝准","url":"/songs/麻枝准 - 渚.flac","cover":"/img/cover_chu.jpg"}]
+    });
+  }
+</script>
+
+  
+
+  
+    <div class="col-lg-7 mx-auto nopadding-md">
+      <div class="container custom mx-auto">
+        © 2020 Lucas Tung. All Rights Reserved.
+      </div>
+    </div>
   
 
   <footer class="mt-5">
@@ -714,19 +242,12 @@
 <!-- SCRIPTS -->
 <script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
 <script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
-<script  src="/js/debouncer.js" ></script>
 <script  src="/js/main.js" ></script>
 
-<!-- Plugins -->
+
+  <script  src="/js/lazyload.js" ></script>
 
 
-  
-    <script  src="/js/lazyload.js" ></script>
-  
-
-
-
-  
 
 
 
@@ -738,6 +259,31 @@
 
 
 
+<!-- Plugins -->
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?1207892f7315a6f38ad6339dc298aa10# 百度统计的Key，参见 https://tongji.baidu.com/sc-web/10000033910/home/site/getjs?siteId=13751376 代码获取中 hm.js? 后边的字符串";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
 
 
 
@@ -761,6 +307,21 @@
 
 
 
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
 
 
   <script  src="/js/local-search.js" ></script>
@@ -772,8 +333,6 @@
       this.onclick = null
     }
   </script>
-
-
 
 
 
